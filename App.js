@@ -1,13 +1,16 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {Component} from 'react';
+import { StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
-export default class App extends React.Component {
+import Landing from './src/Components/wlecome/Landing_components/Landing.js'
+
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hello World!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+       <Landing/>
       </View>
     );
   }
@@ -16,8 +19,5 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
