@@ -4,13 +4,15 @@ import { StyleSheet,
   View
 } from 'react-native';
 
-import Landing from './src/Components/wlecome/Landing_components/Landing.js'
+import Landing from './src/Components/wlecome/Landing_components/Landing.js';
+import Announcements from './src/Components/MainPages/Interface_Contents/Announcements/Announcements.js';
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-       <Landing/>
+       // <Landing/>
+          <Announcements/>
       </View>
     );
   }
