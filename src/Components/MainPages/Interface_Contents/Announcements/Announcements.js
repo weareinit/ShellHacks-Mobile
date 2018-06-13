@@ -48,12 +48,15 @@ export default class Announcements extends React.Component {
             //</View>
             
             <Container style={styles.container}>
-                //<View>
+                <View>
                     <Content>
                         <Card style={styles.card}>
                             <CardItem header style={styles.title} >
+                              <Thumbnail style={styles.icon} source={require('../Assets/pink-shell.png')} />
                                <Text style={styles.textContent} >Announcement Headline</Text>
-                                
+                                <TouchableOpacity style={styles.expand} onPress={this.ShowHideTextComponentView}>
+                                    <Thumbnail style={styles.icon} source={require('../Assets/keyboard-right-arrow-button.png')} />
+                                </TouchableOpacity>
                             </CardItem>
                             <CardItem style={styles.cardItem}>
                             {
@@ -74,7 +77,7 @@ export default class Announcements extends React.Component {
                         </Card>
                         
                     </Content>
-                //</View>
+                </View>
             </Container>
         );
     }
