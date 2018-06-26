@@ -65,7 +65,8 @@ export default class Announcements extends React.Component {
                         
                                 
                                 <Body>
-                                    <Text style={styles.textContent2}>01/20 1:00 PM - 12:00 PM </Text>
+                                    <Text style={styles.textContent2}>01/20 1:00 PM - 12:00 PM 
+                                    </Text>
                                     <Text style={styles.textContent3}>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies eros vitae efficitur volutpat. Nam non neque eget erat finibus tincidunt a non justo. Integer pretium faucibus erat, ac mattis nulla dictum eget. 
                                     </Text>
@@ -75,7 +76,6 @@ export default class Announcements extends React.Component {
 
                             </CardItem>
                         </Card>
-                        
                     </Content>
                 </View>
             </Container>
