@@ -1,35 +1,34 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet,
+    StyleSheet,Image,View,Text
 } from 'react-native';
-import { Header } from 'react-native-elements';
-export default class Sponsors extends Component {
+export default class Organizers extends Component {
     render() {
         return (
             <View>//Main view 
-                <view style={Styles.Title_bar}>//Title Bar view
+                <View style={Styles.Title_bar}>//Title Bar view
 
-                    <view style={Styles.TitleBarContents}>
+                    <View style={Styles.TitleBarContents}>
                         <Image source={this.props.Logo} style={Styles.logo} /> //full size
-                        <text >
+                        <Text >
                             Organizers
-                        </text>
-                    </view>
-                </view>
+                        </Text>
+                    </View>
+                </View>
 
-                <view>//Orginizers view aka contents
+                <View>//Orginizers view aka contents
                     <Image source={this.props.organizer} style={Styles.logo} /> //full size 
-                </view>
+                </View>
 
             </View>
         );
     }
 }
 
-const styles = StyleSheet.create({
+const Styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexdirection: row,
+        flexDirection: 'row',
 
     },
     /*icon: {
