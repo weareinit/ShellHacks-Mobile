@@ -4,11 +4,12 @@
     "\\src",
     "\\src\\Components",
     "\\src\\Components\\MainPages",
+    "\\src\\Components\\MainPages\\assets",
     "\\src\\Components\\MainPages\\Interface",
     "\\src\\Components\\MainPages\\Interface_Contents",
     "\\src\\Components\\MainPages\\Interface_Contents\\Announcements",
     "\\src\\Components\\MainPages\\Interface_Contents\\Assets"
   ],
-  "SelectedNode": "\\src\\Components\\MainPages\\Interface_Contents\\Assets",
+  "SelectedNode": "\\src\\Components\\MainPages\\assets",
   "PreviewInSolutionExplorer": false
 }

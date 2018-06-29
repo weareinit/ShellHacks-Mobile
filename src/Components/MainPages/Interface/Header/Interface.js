@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, StatusBar} from 'react-native';
+import { StyleSheet, Text, View, Image, StatusBar } from 'react-native';
 import {
-     Container, Header, Content, Title, Body
+    Container, Header, Content, Title, Body
 } from 'native-base';
+
+// import Announcements from '../ Interface_Contents / Announcements / Announcements.js';
 
 export default class Interface extends Component {
 
     render() {
         return (
             <Container style={styles.container}>
-                
                 <Header style={styles.header}>
                     <Body>
                         <Text style={styles.title}>Announcements</Text>
-                        
                     </Body>
-                </Header>  
+                </Header>
                 <View>
+
                     <Image style={styles.image} source={require('../Assets/Miami_Beach_Pink.png')} />
                 </View>
+
+                
             </Container>
         );
     }
@@ -41,7 +44,7 @@ const styles = StyleSheet.create({
     },
 
     background: {
-       
+
         backgroundColor: 'transparent'
     },
 
@@ -62,7 +65,7 @@ const styles = StyleSheet.create({
     image: {
         flex: 1,
         position: 'absolute',
-        
+
         resizeMode: "contain"
     },
 });
