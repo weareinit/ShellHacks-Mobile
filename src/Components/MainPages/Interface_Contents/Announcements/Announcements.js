@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity, SafeAreaView } from 'react-native';
 import {
     Image, 
     Container, 
@@ -40,42 +40,39 @@ export default class Announcements extends React.Component {
         }
     }
 
-
     render() {
         return (
             // <View style={styles.text}>
             //     <Text style={styles.text}>Hello Guys!</Text>
             //</View>
-            
-            <Container style={styles.container}>
-                //<View>
-                    <Content>
-                        <Card style={styles.card}>
-                            <CardItem header style={styles.title} >
-                               <Text style={styles.textContent} >Announcement Headline</Text>
-                                
-                            </CardItem>
-                            <CardItem style={styles.cardItem}>
-                            {
-                                // Pass any View or Component inside the curly bracket.
-                                // Here the ? Question Mark represent the ternary operator.
-                        
-                                
-                                <Body>
-                                    <Text style={styles.textContent2}>01/20 1:00 PM - 12:00 PM </Text>
-                                    <Text style={styles.textContent3}>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies eros vitae efficitur volutpat. Nam non neque eget erat finibus tincidunt a non justo. Integer pretium faucibus erat, ac mattis nulla dictum eget. 
-                                    </Text>
+            <SafeAreaView style = {{flex:1,marginTop: 20}} >
+                <Container style={styles.container}>
+                    <View>
+                        <Content>
+                            <Card style={styles.card}>
+                                <CardItem header style={styles.title} >
+                                <Text style={styles.textContent} >
+                                    Announcement Headline
+                                </Text>
+                                </CardItem>
+                                <CardItem style={styles.cardItem}>
+                                    {
+                                    // Pass any View or Component inside the curly bracket.
+                                    // Here the ? Question Mark represent the ternary operator.
+                                    <Body>
+                                        <Text style={styles.textContent2}>01/20 1:00 PM - 12:00 PM </Text>
+                                        <Text style={styles.textContent3}>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies eros vitae efficitur volutpat. Nam non neque eget erat finibus tincidunt a non justo. Integer pretium faucibus erat, ac mattis nulla dictum eget. 
+                                        </Text>
 
-                                </Body> 
-                            }
-
-                            </CardItem>
-                        </Card>
-                        
-                    </Content>
-                //</View>
-            </Container>
+                                    </Body> 
+                                    }
+                                </CardItem>
+                            </Card>    
+                        </Content>
+                    </View>
+                </Container>
+            </SafeAreaView>
         );
     }
 }
@@ -87,8 +84,6 @@ export default class Announcements extends React.Component {
             // paddingHorizontal: 10,
             marginLeft: "auto",
             marginRight: "auto",
-            
-            
        },
 
        card: {
@@ -102,12 +97,9 @@ export default class Announcements extends React.Component {
        icon: {
            width: 30,
            height: 30,
-           
        },
 
        expand: {
-           
-           
        },
 
        title: {
