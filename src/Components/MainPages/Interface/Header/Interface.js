@@ -6,23 +6,18 @@ import {
 
 // import Announcements from '../ Interface_Contents / Announcements / Announcements.js';
 
+
 export default class Interface extends Component {
 
     render() {
         return (
-            <Container style={styles.container}>
                 <Header style={styles.header}>
                     <Body>
+                        <Image source={require('../Assets/Miami_Beach_Pink_Small.png')}
+                            style={styles.image} />
                         <Text style={styles.title}>Announcements</Text>
                     </Body>
                 </Header>
-                <View>
-
-                    <Image style={styles.image} source={require('../Assets/Miami_Beach_Pink.png')} />
-                </View>
-
-                
-            </Container>
         );
     }
 }
@@ -32,26 +27,15 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white',
         // the marginLeft and marginRight here would have prevented the width: '100%' for the header to work
+        
     },
 
     header: {
         height: 88,
-        width: '100%',
-        marginLeft: "auto",
-        marginRight: "auto",
-        backgroundColor: '#ff1f8c'
+        width: '110%',
+        marginLeft: -10,
+        backgroundColor: 'rgba(37, 30, 129, 1)'
 
-    },
-
-    background: {
-
-        backgroundColor: 'transparent'
-    },
-
-    background1: {
-        position: 'absolute',
-        height: 100,
-        zIndex: 1,
     },
 
     title: {
@@ -59,13 +43,15 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
         paddingTop: 57,
+        marginLeft: 15,
         textAlign: 'center'
     },
 
     image: {
         flex: 1,
-        position: 'absolute',
-
-        resizeMode: "contain"
+        width: '100%',
+        height: 150,
+        overflow: 'hidden', 
+        position: 'absolute'
     },
 });

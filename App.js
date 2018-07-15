@@ -6,13 +6,15 @@ import {
 } from 'react-native';
 
 import Announcements from './src/Components/MainPages/Interface_Contents/Announcements/Announcements.js';
-import Interface from './src/Components/MainPages/Interface/Interface.js';
+import Interface from './src/Components/MainPages/Interface/Header/Interface.js';
+// import MenuBar from './src/Components/MainPages/Interface/MenuBar/menuBar.js';
 
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Interface/>
+        <View style={styles.container}>
+            <Interface />
+            <Announcements />
       </View>
     );
   }
