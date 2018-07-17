@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text,
-  View
+  View, Button, Alert
 } from 'react-native';
-import Landing from './src/Components/wlecome/Landing_components/Landing'
-import Organizers from './Organizers'
+import Map from './src/Components/MainPages/Interface_Contents/Map/Map';
+import TitleBar from './src/Components/MainPages/Interface_Contents/Sponsors/Page_contents/TitleBar';
+import Sponsors from './src/Components/MainPages/Interface_Contents/Sponsors/Sponsors';
+import Profile from './src/Components/MainPages/Interface_Contents/Profile/Profile';
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-       
-        <Organizers />
+        <Profile />
       </View>
     );
   }
@@ -19,5 +19,6 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'flex-end',
   },
 });
