@@ -10,6 +10,9 @@ export default class buttons extends React.Component {
     PressedButton = () => {
         Linking.openURL(this.props.url)
     }
+    PressedButton = () => {
+        Linking.openURL(this.props.url)
+    }
     render() {
         return (
             <View style={this.props.viewStyle}>
@@ -47,13 +50,13 @@ const Styles = StyleSheet.create({
     },
     buttons: {
         height: 55,
-        width: 300,
+        width: 260,
         backgroundColor: 'navy',
         borderRadius: 10,
         marginTop: 20,
         flexDirection: 'row',
-        paddingLeft: 50,
         alignItems: 'center',
+        paddingLeft:30
 
     },
 });

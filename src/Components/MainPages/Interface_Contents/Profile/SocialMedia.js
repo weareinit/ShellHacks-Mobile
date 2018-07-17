@@ -12,9 +12,9 @@ export default class SocialMedia extends React.Component {
     }
     render() {
         return (
-            <View style={this.props.viewStyle}>
+            <View style={this.props.socialMediaStyle}>
                 <TouchableOpacity onPress={this.PressedButton} >
-                    <Image style={Styles.imagestyle} source={this.props.socialMedia} />
+                    <Image style={Styles.imagestyle} source={this.props.SocialMediaImage} />
                 </TouchableOpacity>
             </View>
 
