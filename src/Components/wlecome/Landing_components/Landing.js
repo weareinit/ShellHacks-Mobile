@@ -13,7 +13,8 @@ export default class Landing extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      login: false
+      login: false,
+      backgroundLoaded: false
     }
     // this.childChange = this.childChange.bind(this);
   }
@@ -29,16 +30,15 @@ export default class Landing extends Component {
 
       <View style={styles.container}>
         <ImageBackground
-          source={require('../images/Miami_Beach_Pink.png')}
-          style={styles.img}>//background View
-          <Logo /> 
+          source={require('../images/Miami_Beach_Pink_2.png')}
+          style={styles.img}> {/*background View*/}
+          <Logo />
           {display}
           <View style={styles.BottomLogos}>
             <Bottom_logo Logo={require('../images/UPETeal.png')} />
             <Bottom_logo/>
             <Bottom_logo/>
             <Bottom_logo Logo={require('../images/SpotifyTeal.png')} />
-        
           </View>
         </ImageBackground>
       </View>
@@ -68,5 +68,4 @@ const styles = StyleSheet.create({
    
   
   }
-
 });

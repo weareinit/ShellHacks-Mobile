@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  View, Button, Alert
+  Text,
+  View,
+  StatusBar
 } from 'react-native';
-import Map from './src/Components/MainPages/Interface_Contents/Map/Map';
-import TitleBar from './src/Components/MainPages/Interface_Contents/Sponsors/Page_contents/TitleBar';
-import Sponsors from './src/Components/MainPages/Interface_Contents/Sponsors/Sponsors';
-import Profile from './src/Components/MainPages/Interface_Contents/Profile/Profile';
-import QRgenerator from './src/Components/MainPages/Interface_Contents/Profile/QRgenerator.js'
+
+import Announcements from './src/Components/MainPages/Interface_Contents/Announcements/Announcements.js';
+import Interface from './src/Components/MainPages/Interface/Header/Interface.js';
+// import MenuBar from './src/Components/MainPages/Interface/MenuBar/menuBar.js';
+
+import AppMenu from './AppMenuTest.js'
+import Landing from './src/Components/wlecome/Landing_components/Landing.js';
+import Menu from './src/Components/MainPages/Interface/MenuBar/menuBar.js'
+
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <QRgenerator />
+        <View style={styles.container}>
+            <Interface />
+            <Announcements />
+
+      //Change color of status bar to white
+        {/*<StatusBar barStyle="light-content"/>*/}
+        {/*<Interface style={styles.container} />*/}
+        {/*<AppMenu style={{backgroundColor: 'blue'}}/>*/}
+        <Menu />
+
       </View>
     );
   }
