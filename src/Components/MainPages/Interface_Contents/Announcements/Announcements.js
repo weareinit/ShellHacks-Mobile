@@ -23,11 +23,6 @@ export default class Announcements extends React.Component {
         }
     }
 
-<<<<<<< Updated upstream
-=======
-    
->>>>>>> Stashed changes
-
     ShowHideTextComponentView = () => {
         if (this.state.status == false) {
             this.setState({ status: true })
@@ -38,10 +33,7 @@ export default class Announcements extends React.Component {
     }
     render() {
         return (
-<<<<<<< Updated upstream
-=======
-            
->>>>>>> Stashed changes
+
             <Container style={styles.container}>
                 <View style = {{flex:1}} >
                     <Content>
