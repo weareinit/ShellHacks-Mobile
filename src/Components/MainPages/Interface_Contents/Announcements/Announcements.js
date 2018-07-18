@@ -20,16 +20,9 @@ export default class Announcements extends React.Component {
         super();
         this.state = {
             status: false
-            // selectedIndex: 1,
         }
-        //this.updateIndex = this.updateIndex.bind(this)
     }
 
-    //updateIndex(index) {
-      //  this.setState({
-       //     selectedIndex: index
-      //  });
-    //}
 
     ShowHideTextComponentView = () => {
         if (this.state.status == false) {
@@ -39,16 +32,10 @@ export default class Announcements extends React.Component {
             this.setState({ status: false })
         }
     }
-
-
     render() {
         return (
-            // <View style={styles.text}>
-            //     <Text style={styles.text}>Hello Guys!</Text>
-            //</View>
-            
             <Container style={styles.container}>
-                //<View>
+                <View style = {{flex:1}} >
                     <Content>
                         <Card style={styles.card}>
                             <CardItem header style={styles.title} >
@@ -59,8 +46,7 @@ export default class Announcements extends React.Component {
                             {
                                 // Pass any View or Component inside the curly bracket.
                                 // Here the ? Question Mark represent the ternary operator.
-                        
-                                
+                    
                                 <Body>
                                     <Text style={styles.textContent2}>01/20 1:00 PM - 12:00 PM </Text>
                                     <Text style={styles.textContent3}>
@@ -69,12 +55,10 @@ export default class Announcements extends React.Component {
 
                                 </Body> 
                             }
-
                             </CardItem>
                         </Card>
-                        
                     </Content>
-                //</View>
+                </View>
             </Container>
         );
     }
@@ -112,7 +96,6 @@ export default class Announcements extends React.Component {
 
        title: {
            backgroundColor: 'rgba(37, 30, 129, 1)',
-           // height: 40,
            flexDirection: 'row',
        },
 

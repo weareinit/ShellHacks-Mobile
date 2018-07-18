@@ -20,7 +20,7 @@ export default class App extends Component {
         {/*<Interface style={styles.container} />*/}
         {/*<AppMenu style={{backgroundColor: 'blue'}}/>*/}
         <Menu />
-        
+         
       </View>
     );
   }
