@@ -13,7 +13,7 @@ import {
     Right,
     Icon
 } from 'native-base';
-import Interface from '../../Interface/Header/Interface'
+//import Interface from '../../Interface/Header/Interface'
 
 
 export default class Announcements extends React.Component {
@@ -110,8 +110,6 @@ export default class Announcements extends React.Component {
     
         return (
             
-            <View style ={{flex:1}} >
-                <Interface/>
                 <View style={styles.container}>
                 <FlatList style={styles.cardItem}
                         showsVerticalScrollIndicator={false}
@@ -148,7 +146,7 @@ export default class Announcements extends React.Component {
                         >
                      </FlatList>
                 </View>
-            </View>
+
         );
     }
 }
@@ -159,8 +157,8 @@ export default class Announcements extends React.Component {
             backgroundColor: '#fff',
             marginLeft: "auto",
             marginRight: "auto",
-            marginTop: 5,
-            marginBottom: 10
+            marginTop: 20,
+            marginBottom: 20
             
             
        },
