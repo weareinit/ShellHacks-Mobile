@@ -3,6 +3,8 @@ import {StyleSheet, Text, View, SafeAreaView, Button} from 'react-native';
 import {createBottomTabNavigator} from 'react-navigation';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Announcements from '../../Interface_Contents/Announcements/Announcements';
+import Interface from '../Header/Interface';
+
  
 //currently place holder class
 class ProfileScreen extends Component{
@@ -10,9 +12,7 @@ class ProfileScreen extends Component{
         return(
             <View style = {{flex:1}} >
                 <View style = {styles.Navbar}>
-                    <Text  >  
-                        Top Setting Bar
-                    </Text>
+                <Interface PageTitle ={'Profile'}/>
                 </View>
                 <View style = {styles.container} >
                     <Text  >
@@ -30,9 +30,7 @@ class SponsorScreen extends Component{
         return(
             <View style = {{flex:1}} >
                 <View style = {styles.Navbar} >
-                 <Text>
-                     Top Sponsor bar
-                    </Text>
+                <Interface PageTitle ={'Sponsors'}/>
                 </View>
                 <View style = {styles.container} >
                     <Text>
@@ -50,9 +48,23 @@ class MapScreen extends Component{
         return(
             <View style = {{flex:1}} >
                 <View style = {styles.Navbar} >
-                 <Text>
-                     Top Map bar
+                 <Interface  PageTitle ={'Maps'}/>
+                </View>
+                <View style = {styles.container} >
+                    <Text>
+                         Map Body Text
                     </Text>
+                </View>
+            </View>
+        );
+    }
+}
+class HomeScreen extends Component{
+    render(){
+        return(
+            <View style = {{flex:1}} >
+                <View style = {styles.Navbar} >
+                <Interface PageTitle ={'Announcements'}/>
                 </View>
                 <View style = {styles.container} >
                     <Text>
@@ -69,9 +81,7 @@ class ScheduleScreen extends Component{
         return(
             <View style = {{flex:1}} >
                 <View style = {styles.Navbar} >
-                 <Text>
-                     Top Schedule bar
-                    </Text>
+                 <Interface PageTitle ={'Schedule'}/>
                 </View>
                 <View style = {styles.container} >
                     <Text>
@@ -101,7 +111,7 @@ export default Menu  = createBottomTabNavigator({
         }, 
     },
     Home:{
-        screen: Announcements,
+        screen: HomeScreen,
         navigationOptions:{
             tabBarLabel:'Home',
             tabBarIcon:<FontAwesome name = "home" color={'white'} size ={30}/>
@@ -141,13 +151,12 @@ const styles = StyleSheet.create({
 
     },
     Navbar:{
-        height: 65,
-        width: 100+"%",
+        height: 100,
+        width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
         borderBottomWidth: StyleSheet.hairlineWidth,
-        borderBottomColor: "rgb(238,238,238)",
-        backgroundColor: 'rgb(255,0,102)',
+        backgroundColor: 'transparent',
     },
 
 });

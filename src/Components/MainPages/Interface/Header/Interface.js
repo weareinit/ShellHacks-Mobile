@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, StatusBar } from 'react-native';
 import {
     Container, Header, Content, Title, Body
 } from 'native-base';
@@ -11,13 +11,12 @@ export default class Interface extends Component {
 
     render() {
         return (
-                <Header style={styles.header}>
-                    <Body>
-                        <Image source={require('../Assets/Miami_Beach_Pink_Small.png')}
-                            style={styles.image} />
-                        <Text style={styles.title}>Announcements</Text>
-                    </Body>
-                </Header>
+           
+            <ImageBackground source={require('../Assets/Miami_Beach_Pink_Small.png')}
+                style={styles.image} >
+                <Text style={styles.title}>{this.props.PageTitle}</Text>
+            </ImageBackground>
+        
         );
     }
 }
@@ -39,19 +38,16 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        fontSize: 38,
+        fontSize: 40,
         color: 'white',
         fontWeight: 'bold',
         paddingTop: 57,
         marginLeft: 15,
-        textAlign: 'center'
+        textAlign: 'left'
     },
 
     image: {
-        flex: 1,
         width: '100%',
-        height: 150,
-        overflow: 'hidden', 
-        position: 'absolute'
+        height: '100%',
     },
 });

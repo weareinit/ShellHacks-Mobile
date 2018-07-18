@@ -17,14 +17,7 @@ export default class App extends Component {
   render() {
     return (
         <View style={styles.container}>
-        <Interface/>
-        <Announcements/>
-
-        {/*<StatusBar barStyle="light-content"/>*/}
-        {/*<Interface style={styles.container} />*/}
-        {/*<AppMenu style={{backgroundColor: 'blue'}}/>*/}
         <Menu />
-
       </View>
     );
   }
