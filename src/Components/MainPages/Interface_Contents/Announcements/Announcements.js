@@ -23,6 +23,10 @@ export default class Announcements extends React.Component {
         }
     }
 
+<<<<<<< Updated upstream
+=======
+    
+>>>>>>> Stashed changes
 
     ShowHideTextComponentView = () => {
         if (this.state.status == false) {
@@ -34,6 +38,10 @@ export default class Announcements extends React.Component {
     }
     render() {
         return (
+<<<<<<< Updated upstream
+=======
+            
+>>>>>>> Stashed changes
             <Container style={styles.container}>
                 <View style = {{flex:1}} >
                     <Content>
@@ -68,7 +76,6 @@ export default class Announcements extends React.Component {
         container: {
             flex: 1,
             backgroundColor: '#fff',
-            // paddingHorizontal: 10,
             marginLeft: "auto",
             marginRight: "auto",
             
