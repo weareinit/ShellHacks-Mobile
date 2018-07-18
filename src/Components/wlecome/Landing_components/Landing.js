@@ -7,7 +7,7 @@ import {
 import Logo from '../Login_components/Logo.js'
 import Login from '../Login_components/Login.js'
 import Register from '../Login_components/Register.js'
-import Bottom_logo from '../Landing_components/Bottom_logo.js';
+import Bottom_logo from '../Landing_components/Bottom_logo.js'
 
 export default class Landing extends Component {
   constructor(props) {
