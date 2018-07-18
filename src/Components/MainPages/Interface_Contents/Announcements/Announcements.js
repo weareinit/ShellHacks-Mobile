@@ -13,26 +13,11 @@ import {
     Right,
     Icon
 } from 'native-base';
+import Interface from '../../Interface/Header/Interface'
 
-//const data = require('../JSON/Dummy_Notifications.json');
 
 export default class Announcements extends React.Component {
-    /*
-     * constructor() {
-        super();
-        this.state = {
-            status: false
-            // selectedIndex: 1,
-        }
-        //this.updateIndex = this.updateIndex.bind(this)
-    }
-    */
-
-    //updateIndex(index) {
-      //  this.setState({
-       //     selectedIndex: index
-      //  });
-    //}
+   
 
     ShowHideTextComponentView = () => {
         if (this.state.status == false) {
@@ -118,32 +103,21 @@ export default class Announcements extends React.Component {
         
     }
 
-    /*
-    json_function = () => {
-
-        var json_fragment = data.id;
-        var json_fragment2 = data.type;
-
-        Alert.alert(
-            'Json Text',
-            console.log(json_fragment)
-        );
-    }
-    */
+  
 
     render() {
 
-        // var json = require('../JSON/Dummy_Notifications.json');
-
+    
         return (
-
-            <View style={styles.container}>
+            
+            <View style ={{flex:1}} >
+                <Interface/>
+                <View style={styles.container}>
                 <FlatList style={styles.cardItem}
                         showsVerticalScrollIndicator={false}
                         data={this.state.data}
                         renderItem={({ item }) =>
                             <View>
-
                             <Content>
                                 <Card style={styles.card}>
                                     <CardItem header style={styles.title} >
@@ -174,6 +148,7 @@ export default class Announcements extends React.Component {
                         >
                      </FlatList>
                 </View>
+            </View>
         );
     }
 }
@@ -182,11 +157,10 @@ export default class Announcements extends React.Component {
         container: {
             flex: 1,
             backgroundColor: '#fff',
-            // paddingHorizontal: 10,
             marginLeft: "auto",
             marginRight: "auto",
-            marginTop: 20,
-            marginBottom: 20
+            marginTop: 5,
+            marginBottom: 10
             
             
        },
@@ -197,7 +171,6 @@ export default class Announcements extends React.Component {
        },
 
        cardItem: {
-          // backgroundColor: '#DCDCDC', // grey background
            borderRadius: 10
        },
 
@@ -214,7 +187,6 @@ export default class Announcements extends React.Component {
 
        title: {
            backgroundColor: 'rgba(37, 30, 129, 1)',
-           // height: 40,
            flexDirection: 'row',
        },
 

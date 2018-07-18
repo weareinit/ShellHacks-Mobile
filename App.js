@@ -8,7 +8,6 @@ import {
 
 import Announcements from './src/Components/MainPages/Interface_Contents/Announcements/Announcements.js';
 import Interface from './src/Components/MainPages/Interface/Header/Interface.js';
-// import MenuBar from './src/Components/MainPages/Interface/MenuBar/menuBar.js';
 
 import AppMenu from './AppMenuTest.js'
 import Landing from './src/Components/wlecome/Landing_components/Landing.js';
@@ -18,10 +17,7 @@ export default class App extends Component {
   render() {
     return (
         <View style={styles.container}>
-            <Interface />
-            <Announcements />
 
-      //Change color of status bar to white
         {/*<StatusBar barStyle="light-content"/>*/}
         {/*<Interface style={styles.container} />*/}
         {/*<AppMenu style={{backgroundColor: 'blue'}}/>*/}

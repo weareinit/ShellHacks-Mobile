@@ -23,6 +23,7 @@ class ProfileScreen extends Component{
         );
     }
 }
+
 //currently place holder class
 class SponsorScreen extends Component{
     render(){
@@ -81,7 +82,6 @@ class ScheduleScreen extends Component{
         );
     }
 } 
-
 
 export default Menu  = createBottomTabNavigator({
     Schedule:{
