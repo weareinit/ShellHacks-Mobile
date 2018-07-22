@@ -30,10 +30,9 @@ const styles = StyleSheet.create({
     },
 
     header: {
-        height: 88,
-        width: '110%',
-        marginLeft: -10,
-        backgroundColor: 'rgba(37, 30, 129, 1)'
+        height: '100%',
+        width: '100%',
+        backgroundColor: 'transparent'
 
     },
 
@@ -41,13 +40,16 @@ const styles = StyleSheet.create({
         fontSize: 40,
         color: 'white',
         fontWeight: 'bold',
-        paddingTop: 57,
-        marginLeft: 15,
-        textAlign: 'left'
+        marginLeft: '5%',
+        textAlign: 'left',
+        marginBottom:'-2.7%'
+
     },
 
     image: {
         width: '100%',
         height: '100%',
+        justifyContent: 'flex-end',
+        marginBottom:0
     },
 });

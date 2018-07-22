@@ -4,6 +4,10 @@ import {createBottomTabNavigator} from 'react-navigation';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Announcements from '../../Interface_Contents/Announcements/Announcements';
 import Interface from '../Header/Interface';
+import Profile from '../../Interface_Contents/Profile/Profile';
+import Map from '../../Interface_Contents/Map/Map.js'
+import Sponsors from '../../Interface_Contents/Sponsors/Sponsors.js'
+import Schedule from '../../Interface_Contents/Schedule/Schedule.js'
 
  
 //currently place holder class
@@ -15,9 +19,7 @@ class ProfileScreen extends Component{
                 <Interface PageTitle ={'Profile'}/>
                 </View>
                 <View style = {styles.container} >
-                    <Text  >
-                        Profile Body Text
-                    </Text>
+                   <Profile/>
                 </View>
             </View>
         );
@@ -33,9 +35,7 @@ class SponsorScreen extends Component{
                 <Interface PageTitle ={'Sponsors'}/>
                 </View>
                 <View style = {styles.container} >
-                    <Text>
-                         sponsor Body Text
-                    </Text>
+                    <Sponsors/>
                 </View>
             </View>
         );
@@ -51,9 +51,7 @@ class MapScreen extends Component{
                  <Interface  PageTitle ={'Maps'}/>
                 </View>
                 <View style = {styles.container} >
-                    <Text>
-                         Map Body Text
-                    </Text>
+                    <Map/>
                 </View>
             </View>
         );
@@ -67,9 +65,7 @@ class HomeScreen extends Component{
                 <Interface PageTitle ={'Announcements'}/>
                 </View>
                 <View style = {styles.container} >
-                    <Text>
-                         Map Body Text
-                    </Text>
+                   <Announcements/>
                 </View>
             </View>
         );
@@ -84,9 +80,7 @@ class ScheduleScreen extends Component{
                  <Interface PageTitle ={'Schedule'}/>
                 </View>
                 <View style = {styles.container} >
-                    <Text>
-                         Schedule Body Text
-                    </Text>
+                   <Schedule/>
                 </View>
             </View>
         );
@@ -147,16 +141,17 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'blue'
+        backgroundColor: 'transparent'
 
     },
     Navbar:{
-        height: 100,
+        height: '15%',
         width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
         borderBottomWidth: StyleSheet.hairlineWidth,
         backgroundColor: 'transparent',
+        
     },
 
 });
