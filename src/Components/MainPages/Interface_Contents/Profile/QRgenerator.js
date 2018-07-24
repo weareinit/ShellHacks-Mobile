@@ -2,36 +2,31 @@ import React, { Component } from 'react'
 import QRCode from 'react-native-qrcode';
 import PopupDialog, { SlideAnimation } from 'react-native-popup-dialog';
 import { Button, Text } from 'react-native'
-
 import {
-    AppRegistry,
     StyleSheet,
     View,
-    TextInput
 } from 'react-native';
+
 const slideAnimation = new SlideAnimation({
     slideFrom: 'bottom',
 });
 
-
-
 export default class QRgenerator extends Component {
+    constructor(props) {
+        super(props);
+    }
     state = {
-        text: 'invalid',
+        text: 'invalid'
     };
 
-
+    //displays popup 
+    onPress = () => {
+        this.popupDialog.show();
+    };
     render() {
         return (
             <View style={styles.container}>
-
-                <View style={styles.popUp}>
-                    <Button
-                        title="Show Dialog"
-                        onPress={() => {
-                            this.popupDialog.show();
-                        }}
-                    />
+                <View style={styles.container} >
                     <PopupDialog style={styles.popUpc}
                         ref={(popupDialog) => { this.popupDialog = popupDialog; }}
                         dialogAnimation={slideAnimation}
@@ -39,6 +34,7 @@ export default class QRgenerator extends Component {
                         height={400}
                         overlayBackgroundColor={'#FF1D8E'}
                         overlayOpacity={100} >
+
                         <View style={styles.QR}>
                             <QRCode
                                 value={this.state.text}
@@ -59,20 +55,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
-    },
-
-    input: {
-        height: 40,
-        borderColor: 'gray',
-        borderWidth: 1,
-        margin: 10,
-        borderRadius: 5,
-        padding: 5,
-    },
-    popUp: {
-        flex: 1,
-        alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
     },
@@ -80,17 +62,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         padding: 40,
-
-    },
-    QRtext: {
-        width: '100%',
-        color: '#FF1D8E',
-        margin: 40,
-        paddingLeft: 25,
-        fontSize: 15,
-        alignItems: 'center',
-        justifyContent: 'center',
-
 
     }
 });

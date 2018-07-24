@@ -2,21 +2,16 @@ import React, { Component } from 'react';
 import {
     StyleSheet, Image, View, Alert, TouchableOpacity, Linking,Text
 } from 'react-native';
+import QRgenerator from './QRgenerator.js'
 export default class buttons extends React.Component {
 
     constructor(props) {
         super(props);
     }
-    PressedButton = () => {
-        Linking.openURL(this.props.url)
-    }
-    PressedButton = () => {
-        Linking.openURL(this.props.url)
-    }
     render() {
         return (
             <View style={this.props.viewStyle}>
-                <TouchableOpacity onPress={this.PressedButton} >
+                <TouchableOpacity onPress={this.props.ButtonPressed} >
                     <View style={Styles.buttons}>
                         <View style={Styles.imageContainer}>
                             <Image style={Styles.imagestyle} source={this.props.ButtonImage} />
