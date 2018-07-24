@@ -215,6 +215,7 @@ const styles = StyleSheet.create({
 
     cardItem: {
         //  borderRadius: 10
+        backgroundColor: "transparent"
     },
 
 
