@@ -14,7 +14,7 @@ export default class TitleBar extends Component {
                         </Text>
                     </View>
                 </View> //Bar
-                <Image style={Styles.imagestyle} source={require('./assets/blue-shell.png')} />
+                <Image style={Styles.imagestyle} source={this.props.ShellIcon} />
 
             </View>//Main view 
         );
@@ -25,19 +25,21 @@ const Styles = StyleSheet.create({
     container: {//contains the whole view 
         flexDirection: 'row',
         height: 80,
-        margin: 10,
-        alignItems: 'flex-end'
+        alignItems: 'flex-end',
+        alignSelf:'center'
+
     }, Bar: {
         height: 60,
-        width: '100%',
+        width: '99%',
         backgroundColor: 'navy',
         justifyContent: 'center',
+        borderRadius:5
 
 
     },
     Title_text: {
         color: 'white',
-        fontSize: 30,
+        fontSize: 25,
         marginLeft: 85
     },
     imagestyle: {
