@@ -8,6 +8,18 @@ import {
     KeyboardAvoidingView,
     Animated
 } from 'react-native';
+import * as firebase from 'firebase';
+
+const fireBaseconfig = {
+    apiKey: "AIzaSyA1VtGXlRqWxHWomrOHmoTnTqwFdCFcOYY",
+    authDomain: "dinder-1c519.firebaseapp.com",
+    databaseURL: "https://dinder-1c519.firebaseio.com",
+    projectId: "dinder-1c519",
+    storageBucket: "dinder-1c519.appspot.com",
+    messagingSenderId: "787556077437"
+  };
+  
+  firebase.initializeApp(fireBaseconfig)
 
 
 export default class Login extends Component {
@@ -17,9 +29,23 @@ export default class Login extends Component {
         this.componentDidMount = this.componentDidMount.bind(this);
         this.focusNextField = this.focusNextField.bind(this);
         this.inputs = {};
+
         this.state = ({
             Yposition: new Animated.Value(50),
-            opacity: new Animated.Value(0)
+            opacity: new Animated.Value(0),
+            email: '',
+            password: '',
+            loggedIn: true
+        })
+    }
+
+    loginUser(email,password){
+        let goToMainPage = ()=>{ this.props.goToMain() }
+        firebase.auth().signInWithEmailAndPassword(email,password).then(function(user){
+            goToMainPage();
+        })
+        .catch(function(error){
+            alert(error);
         })
     }
 
@@ -44,7 +70,7 @@ export default class Login extends Component {
             }
         ).start();
     }
-
+    
     render() {
         let fadeInUp = {
             transform: ([{ translateY: this.state.Yposition }]),
@@ -65,18 +91,23 @@ export default class Login extends Component {
                             }}
                             returnKeyType="next"
                             underlineColorAndroid='rgba(0,0,0,0)'
+                            onChangeText={(email) => this.setState({email})}
                         />
                         />
                         <TextInput style={styles.inputBox}
                             placeholder="Password"
                             blurOnSubmit={true}
                             returnKeyType={"done"}
+                            onSubmitEditing={() =>
+                                this.loginUser(this.state.email,this.state.password)
+                            }
                             ref={input => {
                                 this.inputs['Password'] = input;
                             }}
                             returnKeyType="go"
                             underlineColorAndroid='rgba(0,0,0,0)'
                             secureTextEntry={true}
+                            onChangeText={(password) => this.setState({password})}
                         />
                     </View>
 
@@ -85,7 +116,8 @@ export default class Login extends Component {
                             <Text style={styles.buttonText}>Return</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={[styles.button, styles.loginBtn]}>
+                        <TouchableOpacity style={[styles.button, styles.loginBtn]}
+                        onPress={()=> this.loginUser(this.state.email,this.state.password)}>
                             <Text style={styles.buttonText}>Login</Text>
                         </TouchableOpacity>
 

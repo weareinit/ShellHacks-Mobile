@@ -5,6 +5,7 @@ import {
   View,
   StatusBar
 } from 'react-native';
+import AppNavigator from './src/app.navigator.js';
 
 import Announcements from './src/Components/MainPages/Interface_Contents/Announcements/Announcements.js';
 import Interface from './src/Components/MainPages/Interface/Header/Interface.js';
@@ -18,7 +19,7 @@ export default class App extends Component {
   render() {
     return (
         <View style={styles.container}>
-        <Menu />
+        <AppNavigator />
       </View>
     );
   }
