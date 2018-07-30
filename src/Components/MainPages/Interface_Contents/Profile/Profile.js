@@ -12,6 +12,7 @@ console.log(Dimensions);
 export default class TitleBar extends Component {
     constructor(props) {
         super(props);
+        this.state
     }
     PressedButton = () => {
         Linking.openURL('https://discordapp.com/invite/upefiu')

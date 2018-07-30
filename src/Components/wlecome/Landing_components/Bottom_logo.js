@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, View, StyleSheet, view } from 'react-native';
+import { Image, View, StyleSheet } from 'react-native';
 
 export default class Bottom_logo extends Component {
     render() {

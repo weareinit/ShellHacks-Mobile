@@ -12,7 +12,7 @@ export default class Interface extends Component {
     render() {
         return (
            
-            <ImageBackground source={require('../Assets/Miami_Beach_Pink_Small.png')}
+            <ImageBackground source={require('../Assets/HeaderBackground.png')}
                 style={styles.image} >
                 <Text style={styles.title}>{this.props.PageTitle}</Text>
             </ImageBackground>

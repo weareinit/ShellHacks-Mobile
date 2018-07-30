@@ -1,44 +1,43 @@
-import React, {Component} from 'react';
-import { StyleSheet,
-  Text,
-  View,
-  TextInput,
-  TouchableOpacity,
-  Linking,
-  Animated
+import React, { Component } from 'react';
+import {
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    Linking,
+    Animated
 } from 'react-native';
 
 
-export default class Login extends Component{
-    constructor(props){
+export default class Login extends Component {
+    constructor(props) {
         super(props);
         this.state = ({
-        opacity: new Animated.Value(0)
-    })
+            opacity: new Animated.Value(0)
+        })
     }
-    componentDidMount(){
+    componentDidMount() {
         Animated.timing(
-          this.state.opacity,{
-              toValue: 1,
-              duration: 1000
-          }
-      ).start();
+            this.state.opacity, {
+                toValue: 1,
+                duration: 1000
+            }
+        ).start();
     }
 
-     goToLogin(newState) {
-    this.props.childChange(newState)
-    }    
-    render(){
+    goToLogin(newState) {
+        this.props.childChange(newState)
+    }
+    render() {
         let fadeIn = {
             opacity: this.state.opacity
         }
-        return(
+        return (
 
             <Animated.View style={[styles.container, fadeIn]}>
                 <TouchableOpacity style={[styles.button, styles.loginBtn]} onPress={() => this.goToLogin(true)}>
                     <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
-                
+
                 <TouchableOpacity style={styles.button} onPress={() => Linking.openURL('https://www.google.com/search?q=cats&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiS-KXFx7XbAhUPjlkKHfmeCdoQ_AUICigB&biw=1366&bih=662')}>
                     <Text style={styles.buttonText}>Register</Text>
                 </TouchableOpacity>
@@ -55,29 +54,29 @@ export default class Login extends Component{
 
 
 const styles = StyleSheet.create({
-  container:{
-      flex: 1,
-      alignItems: 'center',
-  },
+    container: {
+        flex: 1,
+        alignItems: 'center',
+    },
 
-  button: {
-      width: 220,
-      height: 40,
-      paddingHorizontal: 10,
-      marginVertical: 8,
-      backgroundColor: '#00207e',
-      borderRadius: 2,
-      paddingVertical: 8,
-  },
-  loginBtn:{
-      backgroundColor: '#16d0cd'
-  },
-  buttonText:{
-      fontSize: 16,
-      fontWeight: '600',
-      color: '#fff',
-      textAlign: 'center',
-  }
+    button: {
+        width: 220,
+        height: 40,
+        paddingHorizontal: 10,
+        marginVertical: 8,
+        backgroundColor: '#00207e',
+        borderRadius: 2,
+        paddingVertical: 8,
+    },
+    loginBtn: {
+        backgroundColor: '#16d0cd'
+    },
+    buttonText: {
+        fontSize: 16,
+        fontWeight: '600',
+        color: '#fff',
+        textAlign: 'center',
+    }
 
 });
 

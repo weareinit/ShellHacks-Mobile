@@ -49,7 +49,7 @@ export default class Landing extends Component {
 
       <View style={styles.container}>
         <ImageBackground
-          source={require('../images/Miami_Beach_Pink_2.png')}
+          source={require('../images/WelcomeBackground.png')}
           style={styles.img}> {/*background View*/}
           <Logo />
           {display}
