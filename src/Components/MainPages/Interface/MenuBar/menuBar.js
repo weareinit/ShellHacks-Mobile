@@ -9,15 +9,12 @@ import Map from '../../Interface_Contents/Map/Map.js'
 import Sponsors from '../../Interface_Contents/Sponsors/Sponsors.js'
 import Schedule from '../../Interface_Contents/Schedule/Schedule.js'
 
-var { screenHeight, screenWidth } = Dimensions.get('window'); //assign the values of the screen height and width of a device 
+var { screenHeight, screenWidth } = Dimensions.get('window');// returns the height and width of the screen ( excluding android nav bar space)
 
-//currently place holder class
 class ProfileScreen extends Component {
     render() {
         return (
-            <View style={{
-                flex: 1,
-            }} >
+            <View style={styles.screenDimensions} >
                 <View style={styles.Navbar}>
                     <Interface PageTitle={'Profile'} />
                 </View>
@@ -29,11 +26,10 @@ class ProfileScreen extends Component {
     }
 }
 
-//currently place holder class
 class SponsorScreen extends Component {
     render() {
         return (
-            <View style={{ flex: 1 }} >
+            <View style={styles.screenDimensions} >
                 <View style={styles.Navbar} >
                     <Interface PageTitle={'Sponsors'} />
                 </View>
@@ -45,11 +41,10 @@ class SponsorScreen extends Component {
     }
 }
 
-//currently place holder class
 class MapScreen extends Component {
     render() {
         return (
-            <View style={{ flex: 1 }} >
+            <View style={styles.screenDimensions} >
                 <View style={styles.Navbar} >
                     <Interface PageTitle={'Maps'} />
                 </View>
@@ -63,7 +58,7 @@ class MapScreen extends Component {
 class HomeScreen extends Component {
     render() {
         return (
-            <View style={{ flex: 1 }} >
+            <View style={styles.screenDimensions} >
                 <View style={styles.Navbar} >
                     <Interface PageTitle={'Announcements'} />
                 </View>
@@ -74,11 +69,10 @@ class HomeScreen extends Component {
         );
     }
 }
-//currently place holder class
 class ScheduleScreen extends Component {
     render() {
         return (
-            <View style={{ flex: 1 }} >
+            <View style={styles.screenDimensions} >
                 <View style={styles.Navbar} >
                     <Interface PageTitle={'Schedule'} />
                 </View>
@@ -140,6 +134,11 @@ export default Menu = createBottomTabNavigator({
     });
 
 const styles = StyleSheet.create({
+    screenDimensions: {// EVERYTHING within the app has this view as a parent... Possibly not the QR PopupDialogue 
+        flex: 1,
+        height: screenHeight,
+        width: screenWidth
+    },
     container: {
         flex: 1,
         alignItems: 'center',
