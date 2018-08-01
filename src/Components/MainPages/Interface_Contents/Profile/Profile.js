@@ -12,7 +12,10 @@ console.log(Dimensions);
 export default class TitleBar extends Component {
     constructor(props) {
         super(props);
-        this.state
+        this.state = {
+            welcomeMessage: 'Good morning',
+            username: 'Jenny'
+        }
     }
     PressedButton = () => {
         Linking.openURL('https://discordapp.com/invite/upefiu')
@@ -26,15 +29,14 @@ export default class TitleBar extends Component {
 
                 <Image style={Styles.Shellimage} source={require('./assets/pinkRoundShell.png')} />
 
-                <Text style={Styles.hello_text}> Hello, Johnny! </Text> // hello message
-                <Buttons buttonText='QR Code' ButtonPressed={this.onPress} ButtonImage={{ uri: 'https://img3.androidappsapk.co/300/0/3/3/com.wolfpackdev.qrcodereader.png' }} />
-                <Buttons buttonText='Discord' ButtonPressed={this.PressedButton} ButtonImage={{ uri: 'https://www.freeiconspng.com/uploads/silver-discord-token-icon-16.png' }} />
-                <QRgenerator />
+                <Text style={Styles.hello_text}> {this.state.welcomeMessage}, {this.state.username} </Text> // hello message
+                <Buttons buttonText='QR Code' ButtonPressed={this.onPress} ButtonImage={require('./assets/qrcode-scan.png')} />
+                <Buttons buttonText='Discord' ButtonPressed={this.PressedButton} ButtonImage={require('./assets/Discord-logo.png')} />
                 <View style={Styles.socialMediaContainer}>
-                    <SocialMedia url={'https://snapchat.com'} socialMediaStyle={Styles.socialMedia} SocialMediaImage={{ uri: 'https://cdn1.iconfinder.com/data/icons/mobile-device/512/settings-option-configurate-gear-blue-round-512.png' }} />
-                    <SocialMedia url={'https://snapchat.com'} socialMediaStyle={Styles.socialMedia} SocialMediaImage={{ uri: 'https://cdn2.iconfinder.com/data/icons/the-circle-icons/513/Facebook.png' }} />
-                    <SocialMedia url={'https://snapchat.com'} socialMediaStyle={Styles.socialMedia} SocialMediaImage={{ uri: 'https://cdn3.iconfinder.com/data/icons/free-social-icons/67/instagram_circle_color-512.png' }} />
-                    <SocialMedia url={'https://snapchat.com'} socialMediaStyle={Styles.socialMedia} SocialMediaImage={{ uri: 'https://d1afx9quaogywf.cloudfront.net/sites/default/files/Logos/Snapchat_0.png' }} />
+                    <SocialMedia url={'https://snapchat.com'} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/logout-icon.png')} />
+                    <SocialMedia url={'https://www.facebook.com/upefiu/'} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/facebook-logo.png')} />
+                    <SocialMedia url={'https://www.instagram.com/shellhacks/?hl=en'} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/instagram-logo.png')} />
+                    <SocialMedia url={'https://snapchat.com'} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/snapchat-logo.png')} />
                 </View>
             </View>//Container 
         );
@@ -46,7 +48,7 @@ const Styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop:'5%'
+        marginTop: '5%'
 
 
 
@@ -55,23 +57,24 @@ const Styles = StyleSheet.create({
         height: '35%',
         width: '100%',
         backgroundColor: 'blue',
-
     },
     Shellimage: {
         height: '35%',
-        width: 500,//'100%' doesnt work :( nor does screenWidth from Dimensions :() :()
         resizeMode: 'contain',
         position: 'relative',
     },
     hello_text: {
         justifyContent: 'center',
-        fontSize: 38,
+        fontSize: 32,
         marginTop: '3%',
 
     },
     socialMedia: {
         height: '100%',
         width: '22%',
+        borderRadius: 50
+
+        
 
     },
     socialMediaContainer: {
@@ -82,6 +85,7 @@ const Styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-around',
         //backgroundColor: 'grey',
+
 
     }
 });

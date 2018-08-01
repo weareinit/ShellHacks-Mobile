@@ -30,5 +30,6 @@ const Styles = StyleSheet.create({
         //borderWidth: 8,
         resizeMode: 'contain',
         //borderColor: 'lightgrey'
+        borderRadius: 10
     }
 });

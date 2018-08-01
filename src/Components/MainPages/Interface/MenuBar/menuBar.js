@@ -118,7 +118,7 @@ export default Menu = createBottomTabNavigator({
     Sponsor: {
         screen: SponsorScreen,
         navigationOptions: {
-            tabBarLabel: 'Sponsor',
+            tabBarLabel: 'Sponsors',
             tabBarIcon: <FontAwesome name="heart" color={'white'} size={24} />,
         },
     }
