@@ -12,7 +12,6 @@ export default class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: 'Jenny'
             welcomeMessage: 'Hello',
             username: 'User',
             DiscordLink: 'https://discordapp.com/invite/upefiu',
