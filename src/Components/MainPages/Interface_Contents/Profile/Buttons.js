@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
     StyleSheet, Image, View, Alert, TouchableOpacity, Linking,Text
 } from 'react-native';
-import QRgenerator from './QRgenerator.js'
 export default class buttons extends React.Component {
 
     constructor(props) {
@@ -11,7 +10,7 @@ export default class buttons extends React.Component {
     render() {
         return (
             <View style={this.props.viewStyle}>
-                <TouchableOpacity onPress={this.props.ButtonPressed} >
+                <TouchableOpacity onPress={this.props.ButtonPressed.bind(this)} >
                     <View style={Styles.buttons}>
                         <View style={Styles.imageContainer}>
                             <Image style={Styles.imagestyle} source={this.props.ButtonImage} />
@@ -35,8 +34,8 @@ const Styles = StyleSheet.create({
         //borderColor: 'lightgrey'
     },
     imageContainer: {
-        height: 55,
-        width: 55,
+        height: '100%',
+        width: '23%',
     },
     text: {
         fontSize: 30,

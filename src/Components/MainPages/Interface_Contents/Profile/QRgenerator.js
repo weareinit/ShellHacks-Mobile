@@ -1,31 +1,36 @@
 import React, { Component } from 'react'
 import QRCode from 'react-native-qrcode';
 import PopupDialog, { SlideAnimation } from 'react-native-popup-dialog';
-import { Button, Text } from 'react-native'
 import {
     StyleSheet,
-    View,
+    View, Text
 } from 'react-native';
 
 const slideAnimation = new SlideAnimation({
     slideFrom: 'bottom',
-});
+}); //popupDialogue's animation
 
 export default class QRgenerator extends Component {
     constructor(props) {
         super(props);
+        this.state = ({
+            text: '',
+            shouldShow: false
+        });//initial states
     }
-    state = {
-        text: 'invalid'
-    };
 
-    //displays popup 
-    onPress = () => {
-        this.popupDialog.show();
-    };
+    //updates states
+    changeText(text) { this.setState(text) };
+    changeShouldShow(shouldShow) { this.setState(shouldShow) };
+
+    //triggers popupDialog
+    showPopup = () => { this.popupDialog.show(); };
+
     render() {
+        let display = () => { if (shouldShow) { this.popupDialog.show() } }
         return (
-            <View style={styles.container}>
+            <View style={styles.container} changeShouldShow={this.changeShouldShow.bind(this)} changeText={this.changeText.bind(this)}>
+                {display}
                 <View style={styles.container} >
                     <PopupDialog style={styles.popUpc}
                         ref={(popupDialog) => { this.popupDialog = popupDialog; }}

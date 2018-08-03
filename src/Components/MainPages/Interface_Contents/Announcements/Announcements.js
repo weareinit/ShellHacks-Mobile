@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList,Image } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
 import {
     Content,
     Card,
@@ -154,40 +154,53 @@ export default class Announcements extends React.Component {
 
 
     render() {
-
+        //_____________________________________________________________________________________________________________________________________________
+        //NEED TO ADD LOGICS TO CHECK UPCOMING EVENTS AND ADD THE ONCE THAT ARE ABOUT TO HAPPEN (~10-15 MIN BEFORE THE SET TIME) and change shell icon to pink or teal
+        //_____________________________________________________________________________________________________________________________________________
 
         return (
 
             <View style={styles.container}>
-                <FlatList style={styles.cardItem}
+                <FlatList style={{ backgroundColor: 'transparent' }}
                     showsVerticalScrollIndicator={false}
                     data={this.state.data}
                     renderItem={({ item }) => (
-                        <View>
-                            <Content >
-                                <TitleBar ShellIcon={require('../Assets/pink-shell.png')} category={item.title} />
-                                <Card style={styles.card}>
+                        <View style={{ backgroundColor: '#fff', justifyContent: 'center' }}>
+                            <TitleBar ShellIcon={require('../Assets/pink-shell.png')} category={item.title} />
+                            <Card style={styles.card}>
+                                <CardItem style={styles.cardItem}>
+                                    {
+                                        <Body>
+                                            <Text style={styles.smallText} >{item.date}</Text>
+                                            <Text style={styles.smallText} >{item.location}</Text>
+                                            <Text style={styles.bodyText} >{item.bodyText}</Text>
+                                        </Body>
+                                    }
+                                </CardItem>
+                            </Card>
 
-
-                                    <CardItem style={styles.cardItem}>
-                                        {
-                                            <Body>
-                                                <Text style={styles.textContent2} >{item.date}</Text>
-                                                <Text style={styles.textContent2} >{item.location}</Text>
-                                                <Text style={styles.textContent3} >{item.bodyText}</Text>
-                                            </Body>
-
-                                        }
-                                    </CardItem>
-                                </Card>
-
-                            </Content>
-
+                            {/*PLACE HOLDER CARD FOR TESTING DIFFERENT SHELL ICON COLORS..........NEED DATA LOGICS*/}
+                            <TitleBar ShellIcon={require('../Assets/teal-shell.png')} category={item.title} />
+                            <Card style={styles.card}>
+                                <CardItem style={styles.cardItem}>
+                                    {
+                                        <Body>
+                                            <Text style={styles.smallText} >{item.date}</Text>
+                                            <Text style={styles.smallText} >{item.location}</Text>
+                                            <Text style={styles.bodyText} >{item.bodyText}</Text>
+                                        </Body>
+                                    }
+                                </CardItem>
+                            </Card>
+                            {/*PLACE HOLDER CARD END */}
                         </View>
+
+
                     )}
                     keyExtractor={item => item.id.toString()} //assign id to each item
                 >
                 </FlatList>
+
             </View>
 
         );
@@ -201,8 +214,8 @@ const styles = StyleSheet.create({
         marginLeft: "5%",
         marginRight: "5%",
         marginTop: '5%',
-        width: '90%'
-
+        width: '90%',
+        backgroundColor: 'transparent'
 
     },
 
@@ -210,16 +223,19 @@ const styles = StyleSheet.create({
         width: '99.1%',
         alignItems: 'center',
         marginTop: 0,
-        borderRadius: 0
+        borderBottomEndRadius: 20,//needed for card borders to wrap cardItem
+        borderBottomStartRadius: 20,//needed for card borders to wrap cardItem
+        backgroundColor: '#F4F4F4',
     },
 
-    cardItem: {
+    cardItem: {// in front the card component 
         //  borderRadius: 10
-        backgroundColor: "transparent"
+        backgroundColor: '#F4F4F4',
+        borderBottomEndRadius: 20,
+        borderBottomStartRadius: 20,
     },
 
-
-    textContent2: {
+    smallText: {
         fontSize: 12,
         color: 'black',
         flex: 1,
@@ -227,7 +243,7 @@ const styles = StyleSheet.create({
 
     },
 
-    textContent3: {
+    bodyText: {
         fontSize: 16,
         color: 'black',
         paddingTop: 6,

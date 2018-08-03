@@ -7,6 +7,7 @@ import {
     Body,
 } from 'native-base';
 import TitleBar from '../Sponsors/Page_contents/TitleBar.js'
+const barColor = { navyBar: '#001E7F', pinkBar: '#FF1D8E', tealBar: '#0FD3CD' }// to change the color of the title bar based on upcoming, cureent .....
 
 export default class Schedule extends React.Component {
     constructor() {
@@ -83,7 +84,7 @@ export default class Schedule extends React.Component {
                         "location": "PG6-500",
                         "date": "Monday, August 24, 2015 7:52 PM",
                         "title": "Need help with JS?",
-                        "bodyText": "Aute exercitation fugiat sit est exercitation aliquip pariatur qui enim commodo labore veniam quis officia. Non irure ad dolor elit."
+                        "bodyText": "However to properly extract this to a <Container> component could allow you to apply common padding logic later on. You might even have to apply different paddings depending on device orientation or screen resolution/pixel density.Aute exercitation fugiat sit est exercitation aliquip pariatur qui enim commodo labore veniam quis officia. Non irure ad dolor elit."
                     },
                     {
                         "id": 9876543987,
@@ -142,8 +143,9 @@ export default class Schedule extends React.Component {
 
 
     render() {
-
-
+        //_____________________________________________________________________________________________________________________________________________
+        //NEED TO ADD LOGICS TO SORT EVENTS BY CARTEGORIES ->>>>>>>>>>> UPCOMING, PAST AND CURRENT 
+        //_____________________________________________________________________________________________________________________________________________
         return (
 
             <View style={styles.container}>
@@ -151,34 +153,84 @@ export default class Schedule extends React.Component {
                     showsVerticalScrollIndicator={false}
                     data={this.state.data}
                     renderItem={({ item }) => (
-                        <View>
-                            <Content >
-                                <View style={styles.titleBar}>
-                                    <Text style={styles.title}>
-                                        {item.title}
-                                    </Text>
-                                </View>
-                                <Card style={styles.card}>
-                                    <CardItem style={styles.cardItem}>
-                                        {
-                                            <Body>
-                                                <Text style={styles.textContent2} >{item.date}</Text>
-                                                <Text style={styles.textContent2} >{item.location}</Text>
-                                                <Text style={styles.textContent3} >{item.bodyText}</Text>
-                                            </Body>
+                        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                            <View style={styles.titleBar}>
+                                <Text style={styles.title}>
+                                    {item.title}
+                                </Text>
+                            </View>
+                            <Card style={styles.card}>
+                                <CardItem style={styles.cardItem}>
+                                    {
+                                        <Body>
+                                            <Text style={styles.textContent2} >{item.date}</Text>
+                                            <Text style={styles.textContent2} >{item.location}</Text>
+                                            <Text style={styles.textContent3} >{item.bodyText}</Text>
+                                        </Body>
 
-                                        }
-                                    </CardItem>
-                                </Card>
+                                    }
+                                </CardItem>
+                            </Card>
+                            {/*PLACE HOLDER CARD FOR TESTING DIFFERENT BAR COLORS..........NEED DATA LOGICS*/}
+                            <View style={styles.titleBar} style={{
+                                backgroundColor: barColor.navyBar, height: 60,
+                                width: '100%',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                alignSelf: 'center',
+                                marginTop: 20,
+                                borderTopStartRadius: 2,
+                                borderTopEndRadius: 2
+                            }}>
+                                <Text style={styles.title}>
+                                    {item.title}
+                                </Text>
+                            </View>
+                            <Card style={styles.card}>
+                                <CardItem style={styles.cardItem}>
+                                    {
+                                        <Body>
+                                            <Text style={styles.textContent2} >{item.date}</Text>
+                                            <Text style={styles.textContent2} >{item.location}</Text>
+                                            <Text style={styles.textContent3} >{item.bodyText}</Text>
+                                        </Body>
 
-                            </Content>
+                                    }
+                                </CardItem>
+                            </Card>
+                            <View style={styles.titleBar} style={{
+                                backgroundColor: barColor.tealBar, height: 60,
+                                width: '100%',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                alignSelf: 'center',
+                                marginTop: 20,
+                                borderTopStartRadius: 2,
+                                borderTopEndRadius: 2
+                            }}>
+                                <Text style={styles.title}>
+                                    {item.title}
+                                </Text>
+                            </View>
+                            <Card style={styles.card}>
+                                <CardItem style={styles.cardItem}>
+                                    {
+                                        <Body>
+                                            <Text style={styles.textContent2} >{item.date}</Text>
+                                            <Text style={styles.textContent2} >{item.location}</Text>
+                                            <Text style={styles.textContent3} >{item.bodyText}</Text>
+                                        </Body>
 
+                                    }
+                                </CardItem>
+                            </Card>
+                            {/*PLACE HOLDER END*/}
                         </View>
                     )}
                     keyExtractor={item => item.id.toString()} //assign id to each item
                 >
                 </FlatList>
-            </View>
+            </View >
 
         );
     }
@@ -197,14 +249,17 @@ const styles = StyleSheet.create({
     },
 
     card: {
-        width: '99.1%',
+        width: '100%',
         alignItems: 'center',
         marginTop: 0,
-        borderRadius: 0
+        borderBottomEndRadius: 20,
+        borderBottomStartRadius: 20,
+        backgroundColor: '#F4F4F4'
     },
 
     cardItem: {
-        //  borderRadius: 10
+        backgroundColor: 'transparent'
+
     },
 
 
@@ -220,7 +275,12 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#FF1D8E'
+        alignSelf: 'center',
+        marginTop: 20,
+        borderTopStartRadius: 2,
+        borderTopEndRadius: 2,
+        backgroundColor: barColor.pinkBar
+
     },
     title: {
         fontSize: 20,

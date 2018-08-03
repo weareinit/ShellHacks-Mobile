@@ -4,39 +4,49 @@ import {
 } from 'react-native';
 import Buttons from './Buttons.js';
 import SocialMedia from './SocialMedia.js';
-import QRgenerator from './QRgenerator.js';
 
 var { screenHeight, screenWidth } = Dimensions.get('window'); //assign the values of the screen height and width of a device 
 
-console.log(Dimensions);
-export default class TitleBar extends Component {
+export default class Profile extends Component {
+    //default values
     constructor(props) {
         super(props);
         this.state = {
-            welcomeMessage: 'Good morning',
             username: 'Jenny'
+            welcomeMessage: 'Hello',
+            username: 'User',
+            DiscordLink: 'https://discordapp.com/invite/upefiu',
+            FacebookLink: 'https://www.facebook.com/upefiu/',
+            InstagramLink: 'https://www.instagram.com/shellhacks/?hl=en',
+            SnapchatLink: 'https://snapchat.com',
+            QRtext: 'invalid'
         }
     }
+
+    //update state variables
+
+
+    //Disord button action 
     PressedButton = () => {
-        Linking.openURL('https://discordapp.com/invite/upefiu')
+        Linking.openURL(this.state.DiscordLink)
     }
-
-
+    //opens QR in a popup
+    onPress = () => {
+        popupClass.popupDialog.show();
+    }
 
     render() {
         return (
-            <View style={Styles.container}>//container
-
+            <View style={Styles.container}>
                 <Image style={Styles.Shellimage} source={require('./assets/pinkRoundShell.png')} />
-
                 <Text style={Styles.hello_text}> {this.state.welcomeMessage}, {this.state.username} </Text> // hello message
                 <Buttons buttonText='QR Code' ButtonPressed={this.onPress} ButtonImage={require('./assets/qrcode-scan.png')} />
                 <Buttons buttonText='Discord' ButtonPressed={this.PressedButton} ButtonImage={require('./assets/Discord-logo.png')} />
                 <View style={Styles.socialMediaContainer}>
-                    <SocialMedia url={'https://snapchat.com'} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/logout-icon.png')} />
-                    <SocialMedia url={'https://www.facebook.com/upefiu/'} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/facebook-logo.png')} />
-                    <SocialMedia url={'https://www.instagram.com/shellhacks/?hl=en'} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/instagram-logo.png')} />
-                    <SocialMedia url={'https://snapchat.com'} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/snapchat-logo.png')} />
+                    <SocialMedia url={this.state.DiscordLink} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/logout-icon.png')} />
+                    <SocialMedia url={this.state.FacebookLink} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/facebook-logo.png')} />
+                    <SocialMedia url={this.state.InstagramLink} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/instagram-logo.png')} />
+                    <SocialMedia url={this.state.SnapchatLink} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/snapchat-logo.png')} />
                 </View>
             </View>//Container 
         );
@@ -49,9 +59,6 @@ const Styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: '5%'
-
-
-
     },
     Shell: {
         height: '35%',
@@ -67,15 +74,10 @@ const Styles = StyleSheet.create({
         justifyContent: 'center',
         fontSize: 32,
         marginTop: '3%',
-
     },
     socialMedia: {
-        height: '100%',
+        height: '78%',
         width: '22%',
-        borderRadius: 50
-
-        
-
     },
     socialMediaContainer: {
         height: '20%',
@@ -85,7 +87,5 @@ const Styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-around',
         //backgroundColor: 'grey',
-
-
-    }
+    },
 });

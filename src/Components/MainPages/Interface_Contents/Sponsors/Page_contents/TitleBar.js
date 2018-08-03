@@ -5,15 +5,15 @@ import {
 export default class TitleBar extends Component {
     render() {
         return (
-            <View style={Styles.container}>//Main view 
+            <View style={Styles.container}>
 
-                <View style={Styles.Bar}>//Bar 
-                    <View style={Styles.TitleBarContents}>//Title Bar view
+                <View style={Styles.Bar}>
+                    <View style={Styles.TitleBarContents}>
                         <Text style={Styles.Title_text}>
                             {this.props.category}
                         </Text>
                     </View>
-                </View> //Bar
+                </View> 
                 <Image style={Styles.imagestyle} source={this.props.ShellIcon} />
 
             </View>//Main view 
@@ -31,9 +31,10 @@ const Styles = StyleSheet.create({
     }, Bar: {
         height: 60,
         width: '99%',
-        backgroundColor: 'navy',
+        backgroundColor: '#001E7F',
         justifyContent: 'center',
-        borderRadius:5
+        borderTopStartRadius:2,
+        borderTopEndRadius:2
 
 
     },
