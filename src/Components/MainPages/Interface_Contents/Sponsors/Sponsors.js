@@ -80,7 +80,7 @@ export default class Sponsors extends Component {
                 {/*_______________________________________ ORGANIZER__________________________________________*/}
                 <FlatList
                     ListHeaderComponent={/*Renders the title of the List*/
-                        <TitleBar ShellIcon={require('./Page_contents/assets/blue-shell.png')} category='Sponsors' />
+                        <TitleBar ShellIcon={require('./Page_contents/assets/blue-shell.png')} category='Organizers' />
                     }
                     data={this.state.data.OrganizersList}
                     renderItem={({ item }) => (
@@ -92,7 +92,7 @@ export default class Sponsors extends Component {
                 {/*_______________________________________ COHOST____________________________________________*/}
                 <FlatList
                     ListHeaderComponent={/*Renders the title of the List*/
-                        <TitleBar ShellIcon={require('./Page_contents/assets/blue-shell.png')} category='Sponsors' />
+                        <TitleBar ShellIcon={require('./Page_contents/assets/blue-shell.png')} category='Cohost' />
                     }
                     data={this.state.data.CohostList}
                     renderItem={({ item }) => (
