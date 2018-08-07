@@ -13,7 +13,7 @@ export default class TitleBar extends Component {
                             {this.props.category}
                         </Text>
                     </View>
-                </View> 
+                </View>
                 <Image style={Styles.imagestyle} source={this.props.ShellIcon} />
 
             </View>//Main view 
@@ -23,31 +23,30 @@ export default class TitleBar extends Component {
 
 const Styles = StyleSheet.create({
     container: {//contains the whole view 
+        flex:1,
         flexDirection: 'row',
         height: 80,
+        width: '100%',
         alignItems: 'flex-end',
-        alignSelf:'center'
+        alignSelf: 'center'
 
     }, Bar: {
-        height: 60,
-        width: '99%',
+        height: '75%',
+        width: '100%',
         backgroundColor: '#001E7F',
         justifyContent: 'center',
-        borderTopStartRadius:2,
-        borderTopEndRadius:2
-
-
+        marginLeft:'.41%'//because <card/> have borders, their width is smaller than 100%  (i think)
     },
     Title_text: {
         color: 'white',
         fontSize: 25,
-        marginLeft: 85
+        marginLeft: '25%'
     },
     imagestyle: {
-        height: 80,
-        width: 60,
+        height: '100%',
+        width: '16%',
         resizeMode: 'contain',
-        margin:10 ,
+        margin: 10,
         position: 'absolute'
     }
 

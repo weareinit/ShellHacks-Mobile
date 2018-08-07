@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, FlatList, Dimensions, Image } from 'react-native';
 import {
-    Content,
     Card,
     CardItem,
     Body,
 } from 'native-base';
 import TitleBar from '../Sponsors/Page_contents/TitleBar.js'
-
+var { screenHeight, screenWidth } = Dimensions.get('window'); //assign the values of the screen height and width of a device 
+import Bottom_logo from '../../../wlecome/Landing_components/Bottom_logo.js';
 export default class Announcements extends React.Component {
 
     /*ShowHideTextComponentView = () => {
@@ -160,12 +160,13 @@ export default class Announcements extends React.Component {
 
         return (
 
-            <View style={styles.container}>
+            <ScrollView style={styles.container}
+                showsVerticalScrollIndicator={false}>
                 <FlatList style={{ backgroundColor: 'transparent' }}
                     showsVerticalScrollIndicator={false}
                     data={this.state.data}
                     renderItem={({ item }) => (
-                        <View style={{ backgroundColor: '#fff', justifyContent: 'center' }}>
+                        <View style={{ flex: 1, backgroundColor: '#fff', justifyContent: 'center' }}>
                             <TitleBar ShellIcon={require('../Assets/pink-shell.png')} category={item.title} />
                             <Card style={styles.card}>
                                 <CardItem style={styles.cardItem}>
@@ -201,7 +202,24 @@ export default class Announcements extends React.Component {
                 >
                 </FlatList>
 
-            </View>
+                {/*Bottom Logos*/}
+                <View style={{
+                    alignItems: 'center',
+                    height: 300,//need to improve to pixel ratio aka dynamic
+                    width: '100%',
+                    marginTop: 70,//need to improve to pixel ratio aka dynamic
+                }}>
+                    <View style={styles.ShellHacks_letterContainer}>
+                        <Image style={styles.ShellHacks_letter} source={require('../Assets/ShellHacks-letter.png')} />
+                    </View>
+                    <View style={{ marginTop: '2%', flexDirection: 'row', height: '17%', width: '100%' }}>
+                        <Bottom_logo Logo={require('../Assets/UPETeal.png')} />
+                        <Bottom_logo />{/*white space*/}
+                        <Bottom_logo />
+                        <Bottom_logo Logo={require('../Assets/SpotifyTeal.png')} />
+                    </View>
+                </View>
+            </ScrollView>
 
         );
     }
@@ -211,16 +229,15 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        marginLeft: "5%",
-        marginRight: "5%",
+        paddingLeft: "5%",
+        paddingRight: "5%",
         marginTop: '5%',
-        width: '90%',
-        backgroundColor: 'transparent'
+        width: '100%',
 
     },
 
     card: {
-        width: '99.1%',
+        width: '100%',
         alignItems: 'center',
         marginTop: 0,
         borderBottomEndRadius: 20,//needed for card borders to wrap cardItem
@@ -244,17 +261,22 @@ const styles = StyleSheet.create({
     },
 
     bodyText: {
+        flex: 1,
         fontSize: 16,
         color: 'black',
-        paddingTop: 6,
+        paddingTop: '2%',
     },
     bottomlogo: {
-        height: 100,
-        width: 150
+        height: '18%',
+        width: '25%',
     },
-    logo: {
+    ShellHacks_letter: {
+        height: '90%',
         width: '100%',
-        height: '100%',
-        resizeMode: 'contain'
+        resizeMode: 'contain',
+    }, ShellHacks_letterContainer: {
+        height: '80%',
+        width: '100%',
+        marginTop: '2%',
     }
 });

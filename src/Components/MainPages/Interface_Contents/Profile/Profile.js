@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import Buttons from './Buttons.js';
 import SocialMedia from './SocialMedia.js';
+import QRgenerator from'./QRgenerator.js';
 
 var { screenHeight, screenWidth } = Dimensions.get('window'); //assign the values of the screen height and width of a device 
 
@@ -31,7 +32,7 @@ export default class Profile extends Component {
     }
     //opens QR in a popup
     onPress = () => {
-        popupClass.popupDialog.show();
+        this.popupDialog.show();
     }
 
     render() {

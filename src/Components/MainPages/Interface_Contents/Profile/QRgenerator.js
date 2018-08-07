@@ -15,7 +15,7 @@ export default class QRgenerator extends Component {
         super(props);
         this.state = ({
             text: '',
-            shouldShow: false
+            shouldShow: true
         });//initial states
     }
 
@@ -26,10 +26,16 @@ export default class QRgenerator extends Component {
     //triggers popupDialog
     showPopup = () => { this.popupDialog.show(); };
 
+    //update shouldShow onDismiss
+    onDismiss = (dismiss) = { if(dismiss) { this.setState(shouldShow = false) } }
+
     render() {
-        let display = () => { if (shouldShow) { this.popupDialog.show() } }
+        let display = this.state.shouldShow ? this.popupDialog.show() : ''
         return (
-            <View style={styles.container} changeShouldShow={this.changeShouldShow.bind(this)} changeText={this.changeText.bind(this)}>
+            <View style={styles.container}
+                changeShouldShow={this.changeShouldShow.bind(this)}
+                changeText={this.changeText.bind(this)}
+            >
                 {display}
                 <View style={styles.container} >
                     <PopupDialog style={styles.popUpc}
