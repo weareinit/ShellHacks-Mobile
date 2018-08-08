@@ -258,7 +258,8 @@ const styles = StyleSheet.create({
     },
 
     cardItem: {
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
+        marginBottom:'3%'
 
     },
 

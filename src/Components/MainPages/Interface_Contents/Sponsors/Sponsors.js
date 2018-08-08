@@ -149,6 +149,8 @@ const styles = StyleSheet.create({
         width: '100%',
         paddingLeft: '5%',
         paddingRight: '5%',
+        marginBottom:'4%'
+
     },
     oneImg: {
         height: 120,// still havent figured a wait to turn these (the images height) into percentages
@@ -172,7 +174,6 @@ const styles = StyleSheet.create({
         padding: '3%',
 
     }, bottomtext: {
-        paddingBottom: 10,
         paddingTop: 20,
         fontSize: 7,
         alignSelf: 'center'

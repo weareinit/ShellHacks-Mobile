@@ -233,6 +233,7 @@ const styles = StyleSheet.create({
         paddingRight: "5%",
         marginTop: '5%',
         width: '100%',
+        marginBottom:'4%'
 
     },
 

@@ -42,12 +42,15 @@ export default class Profile extends Component {
                 <Image style={Styles.Shellimage} source={require('./assets/pinkRoundShell.png')} />
                 <Text style={Styles.hello_text}> {this.state.welcomeMessage}, {this.state.username} </Text> // hello message
                 <Buttons buttonText='QR Code' ButtonPressed={() => { this.setState({ showQR: true }) }} ButtonImage={require('./assets/qrcode-scan.png')} />
-                <Modal visible={this.state.showQR == true} style={Styles.modal}>
+                <Modal animationType="slide"
+                    transparent={false}
+                    visible={this.state.showQR == true}
+                    style={Styles.modal}>
                     <QRgenerator />
                     <TouchableOpacity onPress={() => { this.setState({ showQR: false }) }}
                         style={{ alignSelf: 'center', height: '15%', width: '25%', alignContent: 'center' }}>
                         <Image source={require('./assets/close-icon.png')} style={{ height: '100%', width: '100%', resizeMode: 'contain' }} />                    </TouchableOpacity>
-                </Modal>
+                </Modal >
                 <Buttons buttonText='Discord' ButtonPressed={this.PressedButton} ButtonImage={require('./assets/Discord-logo.png')} />
                 <View style={Styles.socialMediaContainer}>
                     <SocialMedia url={this.state.DiscordLink} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/logout-icon.png')} />
@@ -65,7 +68,7 @@ const Styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: '5%'
+        marginTop: '5%',
     },
     Shell: {
         height: '35%',

@@ -8,6 +8,7 @@ import Profile from '../../Interface_Contents/Profile/Profile';
 import Map from '../../Interface_Contents/Map/Map.js'
 import Sponsors from '../../Interface_Contents/Sponsors/Sponsors.js'
 import Schedule from '../../Interface_Contents/Schedule/Schedule.js'
+import Shellicon from './Shellicon.js';
 
 var { screenHeight, screenWidth } = Dimensions.get('window');// returns the height and width of the screen ( excluding android nav bar space)
 
@@ -89,52 +90,55 @@ export default Menu = createBottomTabNavigator({
         screen: ScheduleScreen,
         navigationOptions: {
             tabBarLabel: 'Schedule',
-            tabBarIcon: <FontAwesome name="calendar" color={'white'} size={24} />
+            tabBarIcon: ({ tintColor }) => <FontAwesome name="calendar" color={tintColor} size={24} />
         },
     },
     Map: {
         screen: MapScreen,
         navigationOptions: {
             tabBarLabel: 'Map',
-            tabBarIcon: (
-                <FontAwesome name="map" color={'white'} size={24} />
-            )
+            tabBarIcon: ({ tintColor }) => <FontAwesome name="map" color={tintColor} size={24} />
+
         },
     },
     Home: {
         screen: HomeScreen,
         navigationOptions: {
-            tabBarLabel: 'Home',
-            tabBarIcon: <FontAwesome name="home" color={'white'} size={30} />
+            tabBarLabel: ' ',
+            tabBarIcon: <Shellicon />
         },
     },
     Profile: {
         screen: ProfileScreen,
         navigationOptions: {
             tabBarLabel: 'Profile',
-            tabBarIcon: <FontAwesome name="user" color={'white'} size={24} />,
+            tabBarIcon: ({ tintColor }) => <FontAwesome name="user" color={tintColor} size={24} />,
         },
     },
     Sponsor: {
         screen: SponsorScreen,
         navigationOptions: {
             tabBarLabel: 'Sponsors',
-            tabBarIcon: <FontAwesome name="heart" color={'white'} size={24} />,
+            tabBarIcon: ({ tintColor }) => <FontAwesome name="heart" color={tintColor} size={24} />,
+
         },
     }
 },
     {
         initialRouteName: 'Home',
-        tintColor: 'white',
         tabBarOptions: {
+            activeTintColor: '#FF1D8E',
+            inactiveTintColor: '#ffffff',
             style: {
-                backgroundColor: 'rgb(38,0,153)',
+                backgroundColor: '#001E7F',
+                height: '9%'
             },
-        },
+            tabStyle: {}
+        }
     });
 
 const styles = StyleSheet.create({
-    screenDimensions: {// EVERYTHING within the app has this view as a parent... Possibly not the QR PopupDialogue 
+    screenDimensions: {// EVERYTHING within the app has this view as a parent... possibly not directly
         flex: 1,
         height: screenHeight,
         width: screenWidth

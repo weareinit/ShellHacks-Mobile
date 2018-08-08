@@ -21,21 +21,21 @@ export default class QRgenerator extends Component {
                     height: '20%', justifyContent: 'center',
                     alignItems: 'center',
                     marginTop: '10%',
-                    marginBottom: '10%'
+                    marginBottom: '10%',
                 }}>
-                    <View style={{ backgroundColor: '#0FD3CD', height: '18%', width: 100, borderRadius: 20, marginBottom: '5%' }}>
+                    <View style={{ backgroundColor: 'white', height: '18%', width: 100, borderRadius: 20, marginBottom: '5%' }}>
                     </View>
-                    <Text style={{ color: '#001E7F', fontSize: 30, fontWeight: 'bold', marginTop: '2%', marginBottom: '0%' }}>Shell-ID</Text>
-                    <Text style={{ color: '#001E7F', fontSize: 20, }}>FirstName Lastname</Text>
+                    <Text style={{ color: 'white', fontSize: 30, fontWeight: 'bold', marginTop: '2%', marginBottom: '0%' }}>Shell-ID</Text>
+                    <Text style={{ color: 'white', fontSize: 20, }}>FirstName Lastname</Text>
                 </View>
-
-                <QRCode
-                    value={this.props.text}
-                    size={250}
-                    bgColor='#FF1D8E'
-                    fgColor='white'
-                />
-
+                <View style={{ height: '65%', width: '85%', backgroundColor: 'white', justifyContent: 'center', alignItems: 'center', borderRadius: 10, }}>
+                    <QRCode
+                        value={this.props.text}
+                        size={250}
+                        bgColor='#FF1D8E'
+                        fgColor='white'
+                    />
+                </View>
             </View>
         );
     };
@@ -49,9 +49,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'center',
-        borderWidth: 10,
         borderRadius: 30,
-        borderColor: '#0FD3CD',
+        backgroundColor: '#FF1D8E'
 
 
 
