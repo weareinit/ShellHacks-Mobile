@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet, Dimensions, Image, View, Text, Button, Linking
+    StyleSheet, Dimensions, Modal, Image, View, Text, TouchableOpacity, Linking
 } from 'react-native';
 import Buttons from './Buttons.js';
 import SocialMedia from './SocialMedia.js';
-import QRgenerator from'./QRgenerator.js';
+import QRgenerator from './QRgenerator.js';
 
 var { screenHeight, screenWidth } = Dimensions.get('window'); //assign the values of the screen height and width of a device 
 
@@ -15,11 +15,13 @@ export default class Profile extends Component {
         this.state = {
             welcomeMessage: 'Hello',
             username: 'User',
+            UserLastName: 'UserLastName',
             DiscordLink: 'https://discordapp.com/invite/upefiu',
             FacebookLink: 'https://www.facebook.com/upefiu/',
             InstagramLink: 'https://www.instagram.com/shellhacks/?hl=en',
             SnapchatLink: 'https://snapchat.com',
-            QRtext: 'invalid'
+            QRtext: 'invalid',
+            showQR: false
         }
     }
 
@@ -32,7 +34,6 @@ export default class Profile extends Component {
     }
     //opens QR in a popup
     onPress = () => {
-        this.popupDialog.show();
     }
 
     render() {
@@ -40,7 +41,13 @@ export default class Profile extends Component {
             <View style={Styles.container}>
                 <Image style={Styles.Shellimage} source={require('./assets/pinkRoundShell.png')} />
                 <Text style={Styles.hello_text}> {this.state.welcomeMessage}, {this.state.username} </Text> // hello message
-                <Buttons buttonText='QR Code' ButtonPressed={this.onPress} ButtonImage={require('./assets/qrcode-scan.png')} />
+                <Buttons buttonText='QR Code' ButtonPressed={() => { this.setState({ showQR: true }) }} ButtonImage={require('./assets/qrcode-scan.png')} />
+                <Modal visible={this.state.showQR == true} style={Styles.modal}>
+                    <QRgenerator />
+                    <TouchableOpacity onPress={() => { this.setState({ showQR: false }) }}
+                        style={{ alignSelf: 'center', height: '15%', width: '25%', alignContent: 'center' }}>
+                        <Image source={require('./assets/close-icon.png')} style={{ height: '100%', width: '100%', resizeMode: 'contain' }} />                    </TouchableOpacity>
+                </Modal>
                 <Buttons buttonText='Discord' ButtonPressed={this.PressedButton} ButtonImage={require('./assets/Discord-logo.png')} />
                 <View style={Styles.socialMediaContainer}>
                     <SocialMedia url={this.state.DiscordLink} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/logout-icon.png')} />
@@ -88,4 +95,8 @@ const Styles = StyleSheet.create({
         justifyContent: 'space-around',
         //backgroundColor: 'grey',
     },
+    modal: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
 });

@@ -1,14 +1,9 @@
 import React, { Component } from 'react'
 import QRCode from 'react-native-qrcode';
-import PopupDialog, { SlideAnimation } from 'react-native-popup-dialog';
 import {
     StyleSheet,
     View, Text
 } from 'react-native';
-
-const slideAnimation = new SlideAnimation({
-    slideFrom: 'bottom',
-}); //popupDialogue's animation
 
 export default class QRgenerator extends Component {
     constructor(props) {
@@ -16,63 +11,50 @@ export default class QRgenerator extends Component {
         this.state = ({
             text: '',
             shouldShow: true
-        });//initial states
+        });
     }
 
-    //updates states
-    changeText(text) { this.setState(text) };
-    changeShouldShow(shouldShow) { this.setState(shouldShow) };
-
-    //triggers popupDialog
-    showPopup = () => { this.popupDialog.show(); };
-
-    //update shouldShow onDismiss
-    onDismiss = (dismiss) = { if(dismiss) { this.setState(shouldShow = false) } }
-
     render() {
-        let display = this.state.shouldShow ? this.popupDialog.show() : ''
         return (
-            <View style={styles.container}
-                changeShouldShow={this.changeShouldShow.bind(this)}
-                changeText={this.changeText.bind(this)}
-            >
-                {display}
-                <View style={styles.container} >
-                    <PopupDialog style={styles.popUpc}
-                        ref={(popupDialog) => { this.popupDialog = popupDialog; }}
-                        dialogAnimation={slideAnimation}
-                        width={300}
-                        height={400}
-                        overlayBackgroundColor={'#FF1D8E'}
-                        overlayOpacity={100} >
-
-                        <View style={styles.QR}>
-                            <QRCode
-                                value={this.state.text}
-                                size={250}
-                                bgColor='#FF1D8E'
-                                fgColor='white'
-                            />
-                            <Text style={styles.QRtext}> Touch outside to close</Text>
-                        </View>
-                    </PopupDialog>
+            <View style={styles.QR}>
+                <View style={{
+                    height: '20%', justifyContent: 'center',
+                    alignItems: 'center',
+                    marginTop: '10%',
+                    marginBottom: '10%'
+                }}>
+                    <View style={{ backgroundColor: '#0FD3CD', height: '18%', width: 100, borderRadius: 20, marginBottom: '5%' }}>
+                    </View>
+                    <Text style={{ color: '#001E7F', fontSize: 30, fontWeight: 'bold', marginTop: '2%', marginBottom: '0%' }}>Shell-ID</Text>
+                    <Text style={{ color: '#001E7F', fontSize: 20, }}>FirstName Lastname</Text>
                 </View>
+
+                <QRCode
+                    value={this.props.text}
+                    size={250}
+                    bgColor='#FF1D8E'
+                    fgColor='white'
+                />
+
             </View>
         );
     };
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-    },
     QR: {
+        marginTop: '10%',
+        height: '80%',
+        width: '90%',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 40,
+        alignSelf: 'center',
+        borderWidth: 10,
+        borderRadius: 30,
+        borderColor: '#0FD3CD',
+
+
+
 
     }
 });
