@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import Buttons from './Buttons.js';
 import SocialMedia from './SocialMedia.js';
-import QRgenerator from './QRgenerator.js';
+import SpecialDiets from './SpecialDiets.js';
 
 var { screenHeight, screenWidth } = Dimensions.get('window'); //assign the values of the screen height and width of a device 
 
@@ -14,14 +14,14 @@ export default class Profile extends Component {
         super(props);
         this.state = {
             welcomeMessage: 'Hello',
-            username: 'User',
-            UserLastName: 'UserLastName',
+            username: 'Hacker',
             DiscordLink: 'https://discordapp.com/invite/upefiu',
+            LinkedinLink:'https://www.linkedin.com/company/upe-fiu/',
             FacebookLink: 'https://www.facebook.com/upefiu/',
             InstagramLink: 'https://www.instagram.com/shellhacks/?hl=en',
             SnapchatLink: 'https://snapchat.com',
-            QRtext: 'invalid',
-            showQR: false
+            SpecialDietsForm: 'https://jehfdenezaire.typeform.com/to/wT0bry',
+            closeModal: false,
         }
     }
 
@@ -32,28 +32,27 @@ export default class Profile extends Component {
     PressedButton = () => {
         Linking.openURL(this.state.DiscordLink)
     }
-    //opens QR in a popup
-    onPress = () => {
-    }
+
 
     render() {
         return (
             <View style={Styles.container}>
                 <Image style={Styles.Shellimage} source={require('./assets/pinkRoundShell.png')} />
                 <Text style={Styles.hello_text}> {this.state.welcomeMessage}, {this.state.username} </Text> // hello message
-                <Buttons buttonText='QR Code' ButtonPressed={() => { this.setState({ showQR: true }) }} ButtonImage={require('./assets/qrcode-scan.png')} />
+                <Buttons buttonText='Special Diets' ButtonPressed={() => { this.setState({ closeModal: true }) }} ButtonImage={require('./assets/qrcode-scan.png')} />
                 <Modal animationType="slide"
                     transparent={false}
-                    visible={this.state.showQR == true}
+                    visible={this.state.closeModal == true}
                     style={Styles.modal}>
-                    <QRgenerator />
-                    <TouchableOpacity onPress={() => { this.setState({ showQR: false }) }}
-                        style={{ alignSelf: 'center', height: '15%', width: '25%', alignContent: 'center' }}>
-                        <Image source={require('./assets/close-icon.png')} style={{ height: '100%', width: '100%', resizeMode: 'contain' }} />                    </TouchableOpacity>
+                    <SpecialDiets formLink={this.state.SpecialDietsForm} />
+                    <TouchableOpacity onPress={() => { this.setState({ closeModal: false }) }}
+                        style={{position:'absolute',alignSelf: 'center', height: '10%', width: '25%', alignContent: 'center' }}>
+                        <Image source={require('./assets/close-icon.png')} style={{ height: '100%', width: '100%', resizeMode: 'contain' }} />
+                    </TouchableOpacity>
                 </Modal >
                 <Buttons buttonText='Discord' ButtonPressed={this.PressedButton} ButtonImage={require('./assets/Discord-logo.png')} />
                 <View style={Styles.socialMediaContainer}>
-                    <SocialMedia url={this.state.DiscordLink} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/logout-icon.png')} />
+                    <SocialMedia url={this.state.LinkedinLink} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/logout-icon.png')} />
                     <SocialMedia url={this.state.FacebookLink} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/facebook-logo.png')} />
                     <SocialMedia url={this.state.InstagramLink} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/instagram-logo.png')} />
                     <SocialMedia url={this.state.SnapchatLink} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('./assets/snapchat-logo.png')} />

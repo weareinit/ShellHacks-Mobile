@@ -2,25 +2,23 @@ import React, { Component } from 'react';
 import {
     StyleSheet, Image, View, Alert, TouchableOpacity, Linking
 } from 'react-native';
-export default class Img extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
+const Img = (props) => {
+
     PressedButton = () => {
-        Linking.openURL(this.props.url)
+        Linking.openURL(props.url)
     }
-    render() {
-        return (
-            <View style={this.props.viewStyle}>
-                <TouchableOpacity onPress={this.PressedButton} >
-                    <Image style={Styles.imagestyle} source={this.props.supporter} />
-                </TouchableOpacity>
-            </View>
+    return (
+        <View style={props.viewStyle}>
+            <TouchableOpacity onPress={PressedButton} >
+                <Image style={Styles.imagestyle} source={props.supporter} />
+            </TouchableOpacity>
+        </View>
 
-        );
-    }
+    );
 }
+export default Img;
+
 const Styles = StyleSheet.create({
     container: {
     },

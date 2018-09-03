@@ -1,35 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-    StyleSheet, Image, View, Alert, TouchableOpacity, Linking
+    StyleSheet, Image, View, TouchableOpacity, Linking
 } from 'react-native';
-export default class SocialMedia extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
+const SocialMedia = (props) => {
+
+    //Button's action
     PressedButton = () => {
-        Linking.openURL(this.props.url)
+        Linking.openURL(props.url)
     }
-    render() {
-        return (
-            <View style={this.props.socialMediaStyle}>
-                <TouchableOpacity onPress={this.PressedButton} >
-                    <Image style={Styles.imagestyle} source={this.props.SocialMediaImage} />
-                </TouchableOpacity>
-            </View>
 
-        );
-    }
+    return (
+        <View style={props.socialMediaStyle}>
+            <TouchableOpacity onPress={PressedButton} >
+                <Image style={Styles.imagestyle} source={props.SocialMediaImage} />
+            </TouchableOpacity>
+        </View>
+
+    );
 }
+export default SocialMedia;
+
 const Styles = StyleSheet.create({
-    container: {
-    },
     imagestyle: {
         height: '100%',
         width: '100%',
-        //borderWidth: 8,
         resizeMode: 'contain',
-        //borderColor: 'lightgrey'
         borderRadius: 15
     }
 });

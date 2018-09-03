@@ -1,29 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
     StyleSheet, Image, View, Text
 } from 'react-native';
-export default class TitleBar extends Component {
-    render() {
-        return (
-            <View style={Styles.container}>
 
-                <View style={Styles.Bar}>
-                    <View style={Styles.TitleBarContents}>
-                        <Text style={Styles.Title_text}>
-                            {this.props.category}
-                        </Text>
-                    </View>
+const TitleBar = (props) => {
+    return (
+        <View style={Styles.container}>
+            <View style={Styles.Bar}>
+                <View style={Styles.TitleBarContents}>
+                    <Text style={Styles.Title_text}>
+                        {props.category}
+                    </Text>
                 </View>
-                <Image style={Styles.imagestyle} source={this.props.ShellIcon} />
-
-            </View>//Main view 
-        );
-    }
-}
+            </View>
+            <Image style={Styles.imagestyle} source={props.ShellIcon} />
+        </View>//Main view 
+    );
+};
+export default TitleBar;
 
 const Styles = StyleSheet.create({
     container: {//contains the whole view 
-        flex:1,
+        flex: 1,
         flexDirection: 'row',
         height: 80,
         width: '100%',
@@ -35,7 +33,7 @@ const Styles = StyleSheet.create({
         width: '100%',
         backgroundColor: '#001E7F',
         justifyContent: 'center',
-        marginLeft:'.41%'//because <card/> have borders, their width is smaller than 100%  (i think)
+        marginLeft: '.41%'//because <card/> have borders, their width is smaller than 100%  (i think)
     },
     Title_text: {
         color: 'white',

@@ -1,44 +1,39 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-    StyleSheet, Image, View, Alert, TouchableOpacity, Linking,Text
+    StyleSheet, Image, View,  TouchableOpacity, Text
 } from 'react-native';
-export default class buttons extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        return (
-            <View style={this.props.viewStyle}>
-                <TouchableOpacity onPress={this.props.ButtonPressed.bind(this)} >
-                    <View style={Styles.buttons}>
-                        <View style={Styles.imageContainer}>
-                            <Image style={Styles.imagestyle} source={this.props.ButtonImage} />
-                        </View>
-                        <Text style={Styles.text}> {this.props.buttonText}</Text>
+const buttons = (props) => {
+    return (
+        <View style={props.viewStyle}>
+            <TouchableOpacity onPress={props.ButtonPressed} >
+                <View style={Styles.buttons}>
+                    <View style={Styles.imageContainer}>
+                        <Image style={Styles.imagestyle} source={props.ButtonImage} />
                     </View>
-                </TouchableOpacity>
-            </View>
+                    <Text style={Styles.text}> {props.buttonText}</Text>
+                </View>
+            </TouchableOpacity>
+        </View>
+    );
+};
 
-        );
-    }
-}
+export default buttons;
+
 const Styles = StyleSheet.create({
     container: {
     },
     imagestyle: {
         height: '100%',
         width: '100%',
-        //borderWidth: 8,
         resizeMode: 'contain',
-        //borderColor: 'lightgrey'
     },
     imageContainer: {
         height: '100%',
         width: '23%',
     },
     text: {
-        fontSize: 30,
+        fontSize: 25,
         color: 'white',
         marginLeft: 10
     },
@@ -50,7 +45,7 @@ const Styles = StyleSheet.create({
         marginTop: 20,
         flexDirection: 'row',
         alignItems: 'center',
-        paddingLeft:30
+        paddingLeft: '5%'
 
     },
 });

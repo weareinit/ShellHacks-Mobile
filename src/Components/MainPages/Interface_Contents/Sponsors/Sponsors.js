@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {
-    View, StyleSheet, ScrollView, FlatList, Dimensions, Text
+import { StyleSheet, ScrollView, FlatList, Dimensions, Text
 } from 'react-native';
 import TitleBar from './Page_contents/TitleBar.js';
 import Img from './Page_contents/Img.js';
@@ -12,59 +11,59 @@ export default class Sponsors extends Component {
         this.state = ({
             data: {
                 OrganizersList: [{
-                    id: '0', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png'
+                    id: '0', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
                 }],
                 CohostList: [{
-                    id: '0', url: 'https://www.spotifyjobs.com/students/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png'
+                    id: '0', url: 'https://www.spotifyjobs.com/students/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
                 }],
                 premiumSponsorsList: [{
-                    id: '0', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png'
+                    id: '0', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
                 }, {
-                    id: '1', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png'
+                    id: '1', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
                 }, {
-                    id: '2', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png'
+                    id: '2', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
                 }, {
-                    id: '3', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png'
+                    id: '3', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
                 },],
                 regularSponsorsList: [{
-                    id: '0', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png'
+                    id: '0', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
                 }, {
-                    id: '1', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png'
+                    id: '1', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
                 }, {
-                    id: '2', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png'
+                    id: '2', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
                 }, {
-                    id: '3', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png'
+                    id: '3', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
                 }, {
-                    id: '4', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png'
+                    id: '4', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
                 }, {
-                    id: '5', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png'
+                    id: '5', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
                 }, {
-                    id: '6', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png'
+                    id: '6', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
                 }, {
-                    id: '7', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png'
+                    id: '7', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
                 }, {
-                    id: '8', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png'
+                    id: '8', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
                 }, {
-                    id: '9', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png'
+                    id: '9', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
                 }, {
-                    id: '10', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png'
+                    id: '10', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
                 },],
                 partnersList: [
-                    { id: '0', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png' },
-                    { id: '1', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png' },
-                    { id: '2', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png' },
-                    { id: '3', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png' },
-                    { id: '4', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png' },
-                    { id: '5', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png' },
-                    { id: '6', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png' },
-                    { id: '7', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png' },
-                    { id: '8', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png' },
-                    { id: '9', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png' },
-                    { id: '10', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png' },
-                    { id: '11', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png' },
-                    { id: '12', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png' },
-                    { id: '13', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png' },
-                    { id: '14', url: 'https://upe.cs.fiu.edu/', logo: 'https://www.tunecore.com/wp-content/uploads/Spotify_logo_black.png' }]
+                    { id: '0', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
+                    { id: '1', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
+                    { id: '2', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
+                    { id: '3', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
+                    { id: '4', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
+                    { id: '5', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
+                    { id: '6', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
+                    { id: '7', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
+                    { id: '8', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
+                    { id: '9', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
+                    { id: '10', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
+                    { id: '11', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
+                    { id: '12', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
+                    { id: '13', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
+                    { id: '14', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' }]
 
             }
         });

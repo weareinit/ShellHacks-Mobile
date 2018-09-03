@@ -1,38 +1,27 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, ImageBackground, StatusBar } from 'react-native';
-import {
-    Container, Header, Content, Title, Body
-} from 'native-base';
+import React from 'react';
+import { StyleSheet, Text, ImageBackground} from 'react-native';
 
-export default class Interface extends Component {
-
-    render() {
+const StaticHeader =(props)=>{
         return (
-
             <ImageBackground source={require('../Assets/HeaderBackground.png')}
                 style={styles.image} >
-                <Text style={styles.title}>{this.props.PageTitle}</Text>
+                <Text style={styles.title}>{props.PageTitle}</Text>
             </ImageBackground>
-
         );
-    }
 }
+export default StaticHeader;
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
         // the marginLeft and marginRight here would have prevented the width: '100%' for the header to work
-
     },
-
     header: {
         height: '100%',
         width: '100%',
         backgroundColor: 'transparent'
-
     },
-
     title: {
         //backgroundColor:'grey',//for testing 
         lineHeight: 40,
@@ -41,10 +30,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft: '5%',
         textAlign: 'left',
-        marginBottom: '-2.66667%'// <text/> is adding an auto margin for some reasin, this is the only i could i found to fix it 
-
+        marginBottom: '-3%'// <text/> is adding an auto margin for some reasin, this is the only i could i found to fix it 
     },
-
     image: {
         width: '100%',
         height: '100%',

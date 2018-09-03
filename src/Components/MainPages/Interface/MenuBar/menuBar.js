@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, SafeAreaView, Button, Dimensions } from 'react-
 import { createBottomTabNavigator } from 'react-navigation';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Announcements from '../../Interface_Contents/Announcements/Announcements';
-import Interface from '../Header/Interface';
+import StaticHeader from '../Header/StaticHeader';
 import Profile from '../../Interface_Contents/Profile/Profile';
 import Map from '../../Interface_Contents/Map/Map.js'
 import Sponsors from '../../Interface_Contents/Sponsors/Sponsors.js'
@@ -17,7 +17,7 @@ class ProfileScreen extends Component {
         return (
             <View style={styles.screenDimensions} >
                 <View style={styles.Navbar}>
-                    <Interface PageTitle={'Profile'} />
+                    <StaticHeader PageTitle={'Profile'} />
                 </View>
                 <View style={styles.container} >
                     <Profile />
@@ -32,7 +32,7 @@ class SponsorScreen extends Component {
         return (
             <View style={styles.screenDimensions} >
                 <View style={styles.Navbar} >
-                    <Interface PageTitle={'Sponsors'} />
+                    <StaticHeader PageTitle={'Sponsors'} />
                 </View>
                 <View style={styles.container} >
                     <Sponsors />
@@ -47,7 +47,7 @@ class MapScreen extends Component {
         return (
             <View style={styles.screenDimensions} >
                 <View style={styles.Navbar} >
-                    <Interface PageTitle={'Maps'} />
+                    <StaticHeader PageTitle={'Maps'} />
                 </View>
                 <View style={styles.container} >
                     <Map />
@@ -61,7 +61,7 @@ class HomeScreen extends Component {
         return (
             <View style={styles.screenDimensions} >
                 <View style={styles.Navbar} >
-                    <Interface PageTitle={'Announcements'} />
+                    <StaticHeader PageTitle={'Announcements'} />
                 </View>
                 <View style={styles.container} >
                     <Announcements />
@@ -75,7 +75,7 @@ class ScheduleScreen extends Component {
         return (
             <View style={styles.screenDimensions} >
                 <View style={styles.Navbar} >
-                    <Interface PageTitle={'Schedule'} />
+                    <StaticHeader PageTitle={'Schedule'} />
                 </View>
                 <View style={styles.container} >
                     <Schedule />

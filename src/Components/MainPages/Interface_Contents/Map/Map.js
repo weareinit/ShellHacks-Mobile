@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Image,Text } from 'react-native';
-export default class Map extends Component {
+import React from 'react';
+import { StyleSheet, View, Image, Text } from 'react-native';
 
-    render() {
-        return (
-            <View style={styles.container}>
-<Text> Hey, implement me! ;)    </Text>
-            </View>
-        );
-    }
+const Map = () => {
+    return (
+        <View style={styles.container}>
+            <Image style={styles.imagestyle} source={require = ''} />
+        </View>
+    );
 }
+
+export default Map;
 
 const styles = StyleSheet.create({
     container: {
@@ -17,5 +17,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
+    imagestyle: {
+        height: '100%',
+        width: '100%'
+    }
 
 });
