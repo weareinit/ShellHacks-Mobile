@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text,
   View,
-  StatusBar
 } from 'react-native';
 import AppNavigator from './src/app.navigator.js';
 

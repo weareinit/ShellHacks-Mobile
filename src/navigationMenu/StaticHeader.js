@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft: '5%',
         textAlign: 'left',
-        marginBottom: '-3%'// <text/> is adding an auto margin for some reasin, this is the only i could i found to fix it 
     },
     image: {
         width: '100%',

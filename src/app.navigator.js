@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator} from 'react-navigation';
-import Landing from './Components/wlecome/Landing_components/Landing.js';
-import Menu from './Components/MainPages/Interface/MenuBar/menuBar.js';
+import Landing from './landing/Landing.js';
+import Menu from './navigationMenu/menuBar.js';
 import * as firebase from 'firebase';
 
   

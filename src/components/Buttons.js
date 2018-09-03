@@ -5,7 +5,7 @@ import {
 
 const buttons = (props) => {
     return (
-        <View style={props.viewStyle}>
+        <View style={Styles.container}>
             <TouchableOpacity onPress={props.ButtonPressed} >
                 <View style={Styles.buttons}>
                     <View style={Styles.imageContainer}>

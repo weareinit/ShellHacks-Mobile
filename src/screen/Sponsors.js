@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, ScrollView, FlatList, Dimensions, Text
 } from 'react-native';
-import TitleBar from './Page_contents/TitleBar.js';
-import Img from './Page_contents/Img.js';
+import TitleBar from '../components/TitleBar.js';
+import Img from '../components/Img.js';
 var { screenHeight, screenWidth } = Dimensions.get('window'); //assign the values of the screen height and width of a device 
 
 export default class Sponsors extends Component {
@@ -79,7 +79,7 @@ export default class Sponsors extends Component {
                 {/*_______________________________________ ORGANIZER__________________________________________*/}
                 <FlatList
                     ListHeaderComponent={/*Renders the title of the List*/
-                        <TitleBar ShellIcon={require('./Page_contents/assets/blue-shell.png')} category='Organizers' />
+                        <TitleBar ShellIcon={require('../Assets/blue-shell.png')} category='Organizers' />
                     }
                     data={this.state.data.OrganizersList}
                     renderItem={({ item }) => (
@@ -91,7 +91,7 @@ export default class Sponsors extends Component {
                 {/*_______________________________________ COHOST____________________________________________*/}
                 <FlatList
                     ListHeaderComponent={/*Renders the title of the List*/
-                        <TitleBar ShellIcon={require('./Page_contents/assets/blue-shell.png')} category='Cohost' />
+                        <TitleBar ShellIcon={require('../Assets/blue-shell.png')} category='Cohost' />
                     }
                     data={this.state.data.CohostList}
                     renderItem={({ item }) => (
@@ -104,7 +104,7 @@ export default class Sponsors extends Component {
                 {/*PREMIUM SPONSORS*/}
                 <FlatList
                     ListHeaderComponent={/*Renders the title of the List*/
-                        <TitleBar ShellIcon={require('./Page_contents/assets/blue-shell.png')} category='Sponsors' />
+                        <TitleBar ShellIcon={require('../Assets/blue-shell.png')} category='Sponsors' />
                     }
                     data={this.state.data.premiumSponsorsList}
                     numColumns={2}
@@ -127,7 +127,7 @@ export default class Sponsors extends Component {
                 {/*_______________________________________ PARTNERS__________________________________________*/}
                 <FlatList
                     ListHeaderComponent={/*Renders the title of the List*/
-                        <TitleBar ShellIcon={require('./Page_contents/assets/blue-shell.png')} category='Partners' />
+                        <TitleBar ShellIcon={require('../Assets/blue-shell.png')} category='Partners' />
                     }
                     data={this.state.data.partnersList}
                     numColumns={4}

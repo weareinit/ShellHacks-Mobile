@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {
     StyleSheet,
-    View, Image, TouchableWithoutFeedback
+    View, Image
 } from 'react-native';
 
 export default class Shellicon extends Component {
@@ -10,7 +10,7 @@ export default class Shellicon extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Image source={require('./assets/pinkRoundShell.png')} />
+                <Image source={require('../Assets/pinkRoundShell.png')} />
             </View>
         );
     };

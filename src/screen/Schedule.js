@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import {
-    Content,
     Card,
     CardItem,
     Body,
 } from 'native-base';
-import TitleBar from '../Sponsors/Page_contents/TitleBar.js'
 const barColor = { navyBar: '#001E7F', pinkBar: '#FF1D8E', tealBar: '#0FD3CD' }// to change the color of the title bar based on upcoming, cureent .....
 
 export default class Schedule extends React.Component {
@@ -259,7 +257,7 @@ const styles = StyleSheet.create({
 
     cardItem: {
         backgroundColor: 'transparent',
-        marginBottom:'3%'
+        marginBottom: '3%'
 
     },
 

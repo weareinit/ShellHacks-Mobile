@@ -11,7 +11,7 @@ export default class Logo extends Component {
         return (
             <View style={styles.container}>
                 <View style={{ flex: 1 }} />
-                <Image style={styles.imageStyle} source={require('../images/Shellhacks-White.png')} />
+                <Image style={styles.imageStyle} source={require('../Assets/Shellhacks-White.png')} />
             </View>
         )
     }

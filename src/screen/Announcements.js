@@ -5,19 +5,10 @@ import {
     CardItem,
     Body,
 } from 'native-base';
-import TitleBar from '../Sponsors/Page_contents/TitleBar.js'
+import TitleBar from '../components/TitleBar.js'
 var { screenHeight, screenWidth } = Dimensions.get('window'); //assign the values of the screen height and width of a device 
-import Bottom_logo from '../../../wlecome/Landing_components/Bottom_logo.js';
+import Bottom_logo from '../components/Bottom_logo.js';
 export default class Announcements extends React.Component {
-
-    /*ShowHideTextComponentView = () => {
-        if (this.state.status == false) {
-            this.setState({ status: true })
-        }
-        else {
-            this.setState({ status: false })
-        }
-    }*/
 
     constructor() {
         super();
@@ -213,10 +204,10 @@ export default class Announcements extends React.Component {
                         <Image style={styles.ShellHacks_letter} source={require('../Assets/ShellHacks-letter.png')} />
                     </View>
                     <View style={{ marginTop: '2%', flexDirection: 'row', height: '17%', width: '100%' }}>
-                        <Bottom_logo Logo={require('../Assets/UPETeal.png')} />
+                        <Bottom_logo Logo={require('../Assets/UPEwhite.png')} />
                         <Bottom_logo />{/*white space*/}
                         <Bottom_logo />
-                        <Bottom_logo Logo={require('../Assets/SpotifyTeal.png')} />
+                        <Bottom_logo Logo={require('../Assets/SpotifyWhite.png')} />
                     </View>
                 </View>
             </ScrollView>

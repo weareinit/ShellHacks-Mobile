@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Button, Dimensions } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Announcements from '../../Interface_Contents/Announcements/Announcements';
-import StaticHeader from '../Header/StaticHeader';
-import Profile from '../../Interface_Contents/Profile/Profile';
-import Map from '../../Interface_Contents/Map/Map.js'
-import Sponsors from '../../Interface_Contents/Sponsors/Sponsors.js'
-import Schedule from '../../Interface_Contents/Schedule/Schedule.js'
-import Shellicon from './Shellicon.js';
+import Announcements from '../screen/Announcements';
+import StaticHeader from '../navigationMenu/StaticHeader';
+import Profile from '../screen/Profile';
+import Map from '../screen/Map'
+import Sponsors from '../screen/Sponsors.js'
+import Schedule from '../screen/Schedule.js'
+import Shellicon from '../components/Shellicon.js';
 
 var { screenHeight, screenWidth } = Dimensions.get('window');// returns the height and width of the screen ( excluding android nav bar space)
 
@@ -138,7 +138,7 @@ export default Menu = createBottomTabNavigator({
     });
 
 const styles = StyleSheet.create({
-    screenDimensions: {// EVERYTHING within the app has this view as a parent... possibly not directly
+    screenDimensions: {// EVERYTHING within the app has this view as a parent...not directly
         flex: 1,
         height: screenHeight,
         width: screenWidth
