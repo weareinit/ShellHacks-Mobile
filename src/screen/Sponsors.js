@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, ScrollView, FlatList, Dimensions, Text
+import {
+    StyleSheet, ScrollView, FlatList, Dimensions, Text
 } from 'react-native';
 import TitleBar from '../components/TitleBar.js';
 import Img from '../components/Img.js';
@@ -8,65 +9,9 @@ var { screenHeight, screenWidth } = Dimensions.get('window'); //assign the value
 export default class Sponsors extends Component {
     constructor(props) {
         super(props);
-        this.state = ({
-            data: {
-                OrganizersList: [{
-                    id: '0', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
-                }],
-                CohostList: [{
-                    id: '0', url: 'https://www.spotifyjobs.com/students/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
-                }],
-                premiumSponsorsList: [{
-                    id: '0', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
-                }, {
-                    id: '1', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
-                }, {
-                    id: '2', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
-                }, {
-                    id: '3', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
-                },],
-                regularSponsorsList: [{
-                    id: '0', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
-                }, {
-                    id: '1', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
-                }, {
-                    id: '2', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
-                }, {
-                    id: '3', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
-                }, {
-                    id: '4', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
-                }, {
-                    id: '5', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
-                }, {
-                    id: '6', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
-                }, {
-                    id: '7', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
-                }, {
-                    id: '8', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
-                }, {
-                    id: '9', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
-                }, {
-                    id: '10', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1'
-                },],
-                partnersList: [
-                    { id: '0', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
-                    { id: '1', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
-                    { id: '2', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
-                    { id: '3', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
-                    { id: '4', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
-                    { id: '5', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
-                    { id: '6', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
-                    { id: '7', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
-                    { id: '8', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
-                    { id: '9', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
-                    { id: '10', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
-                    { id: '11', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
-                    { id: '12', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
-                    { id: '13', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' },
-                    { id: '14', url: 'https://upe.cs.fiu.edu/', logo: 'https://i0.wp.com/www.supportdriven.com/wp-content/uploads/2017/10/github-logo.png?ssl=1' }]
-
-            }
-        });
+        this.state = {
+            data: this.props.sponsorsData
+        }
     }
 
 
@@ -75,8 +20,8 @@ export default class Sponsors extends Component {
         return (
             <ScrollView showsVerticalScrollIndicator={false} style={styles.container}
             >
-
-                {/*_______________________________________ ORGANIZER__________________________________________*/}
+                {console.log(this.state.data) }
+                 {/*_______________________________________ ORGANIZER__________________________________________*/}
                 <FlatList
                     ListHeaderComponent={/*Renders the title of the List*/
                         <TitleBar ShellIcon={require('../Assets/blue-shell.png')} category='Organizers' />
@@ -148,7 +93,7 @@ const styles = StyleSheet.create({
         width: '100%',
         paddingLeft: '5%',
         paddingRight: '5%',
-        marginBottom:'4%'
+        marginBottom: '4%'
 
     },
     oneImg: {

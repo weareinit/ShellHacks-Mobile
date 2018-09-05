@@ -9,24 +9,35 @@ import SpecialDiets from '../components/SpecialDiets.js';
 var { screenHeight, screenWidth } = Dimensions.get('window'); //assign the values of the screen height and width of a device 
 
 export default class Profile extends Component {
-    //default values
+    //default values...curent in the database
     constructor(props) {
         super(props);
         this.state = {
             welcomeMessage: 'Hello',
             username: 'Hacker',
-            DiscordLink: 'https://discordapp.com/invite/upefiu',
-            LinkedinLink: 'https://www.linkedin.com/company/upe-fiu/',
-            FacebookLink: 'https://www.facebook.com/upefiu/',
-            InstagramLink: 'https://www.instagram.com/shellhacks/?hl=en',
-            SnapchatLink: 'https://snapchat.com',
-            SpecialDietsForm: 'https://jehfdenezaire.typeform.com/to/wT0bry',
+            DiscordLink: this.props.profileData.discord,
+            LinkedinLink: this.props.profileData.linkedin,
+            FacebookLink: this.props.profileData.facebook,
+            InstagramLink: this.props.profileData.instagram,
+            SnapchatLink: this.props.profileData.snapchat,
+            SpecialDietsForm: this.props.profileData.specialDiets,
             closeModal: false,
         }
     }
-
-    //update state variables
-
+    //updates the state if parent update
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.value !== this.props.profileData) {
+            this.setState(this.profileData);
+        }
+    }
+    //updates the state if parent update
+    componentDidUpdate(prevProps) {
+        if (this.props.profileData !==prevProps.profileData) {
+            this.setState(this.props.profileData);
+        }
+    }
+    // //update state variables
+    // componentDidMount(props) { this.setState(props) }
 
     //Disord button action 
     PressedButton = () => {
@@ -37,7 +48,7 @@ export default class Profile extends Component {
     render() {
         return (
             <View style={Styles.container}>
-                <Image style={Styles.Shellimage} source={require('../Assets/pinkRoundShell.png')} />
+                <Image style={Styles.Shellimage} source={require('../Assets/profileShell.png')} />
                 <Text style={Styles.hello_text}> {this.state.welcomeMessage}, {this.state.username} </Text> // hello message
                 <Buttons buttonText='Special Diets' ButtonPressed={() => { this.setState({ closeModal: true }) }} ButtonImage={require('../Assets/qrcode-scan.png')} />
                 <Modal animationType="slide"

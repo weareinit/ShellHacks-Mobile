@@ -12,7 +12,7 @@ export default class Bottom_logo extends Component {
 }
 const Styles = StyleSheet.create({
     logoContainer: {
-        width: '25%',
+        width: '33.33%',
         height: '60%',
        // backgroundColor: '#00207e'//for testing 
     },
