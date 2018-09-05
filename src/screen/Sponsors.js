@@ -26,11 +26,11 @@ export default class Sponsors extends Component {
                     ListHeaderComponent={/*Renders the title of the List*/
                         <TitleBar ShellIcon={require('../Assets/blue-shell.png')} category='Organizers' />
                     }
-                    data={this.state.data.OrganizersList}
+                    data={this.state.data.organizers}
                     renderItem={({ item }) => (
-                        <Img viewStyle={styles.oneImg} supporter={{ uri: item.logo }} url={item.url} />
+                        <Img viewStyle={styles.oneImg} supporter={{ uri: item.logo }} url={item.link} />
                     )}
-                    keyExtractor={(item) => item.id.toString()} //assign id to each item
+                    keyExtractor={(item) => item.name} //assign id to each item
                 />
 
                 {/*_______________________________________ COHOST____________________________________________*/}
@@ -38,11 +38,11 @@ export default class Sponsors extends Component {
                     ListHeaderComponent={/*Renders the title of the List*/
                         <TitleBar ShellIcon={require('../Assets/blue-shell.png')} category='Cohost' />
                     }
-                    data={this.state.data.CohostList}
+                    data={this.state.data.cohost}
                     renderItem={({ item }) => (
-                        <Img viewStyle={styles.oneImg} supporter={{ uri: item.logo }} url={item.url} />
+                        <Img viewStyle={styles.oneImg} supporter={{ uri: item.logo }} url={item.link} />
                     )}
-                    keyExtractor={(item) => item.id.toString()} //assign id to each item
+                    keyExtractor={(item) => item.name} //assign id to each item
                 />
 
                 {/*_______________________________________ SPONSORS__________________________________________*/}
@@ -51,22 +51,22 @@ export default class Sponsors extends Component {
                     ListHeaderComponent={/*Renders the title of the List*/
                         <TitleBar ShellIcon={require('../Assets/blue-shell.png')} category='Sponsors' />
                     }
-                    data={this.state.data.premiumSponsorsList}
+                    data={this.state.data.premiumSponsors}
                     numColumns={2}
                     renderItem={({ item }) => (
-                        <Img viewStyle={styles.Twoimg} supporter={{ uri: item.logo }} url={item.url} />
+                        <Img viewStyle={styles.Twoimg} supporter={{ uri: item.logo }} url={item.link} />
                     )}
-                    keyExtractor={(item) => item.id.toString()} //assign id to each item
+                    keyExtractor={(item) => item.name} //assign id to each item
                 />
 
                 {/*REGULAR SPONSORS*/}
                 <FlatList
-                    data={this.state.data.regularSponsorsList}
+                    data={this.state.data.sponsors}
                     numColumns={3}
                     renderItem={({ item }) => (
-                        <Img viewStyle={styles.threeimg} supporter={{ uri: item.logo }} url={item.url} />
+                        <Img viewStyle={styles.threeimg} supporter={{ uri: item.logo }} url={item.link} />
                     )}
-                    keyExtractor={(item) => item.id.toString()} //assign id to each item
+                    keyExtractor={(item) => item.name} //assign id to each item
                 />
 
                 {/*_______________________________________ PARTNERS__________________________________________*/}
@@ -74,12 +74,12 @@ export default class Sponsors extends Component {
                     ListHeaderComponent={/*Renders the title of the List*/
                         <TitleBar ShellIcon={require('../Assets/blue-shell.png')} category='Partners' />
                     }
-                    data={this.state.data.partnersList}
+                    data={this.state.data.partners}
                     numColumns={4}
                     renderItem={({ item }) => (
-                        <Img viewStyle={styles.fourimg} supporter={{ uri: item.logo }} url={item.url} />
+                        <Img viewStyle={styles.fourimg} supporter={{ uri: item.logo }} url={item.link} />
                     )}
-                    keyExtractor={(item) => item.id.toString()} //assign id to each item
+                    keyExtractor={(item) => item.name} //assign id to each item
                 />
                 <Text style={styles.bottomtext}>Made with 🐢, ❤, ☀, ⛱, 🌊, 🌀 by the ShellHacks Team</Text>
             </ScrollView>
