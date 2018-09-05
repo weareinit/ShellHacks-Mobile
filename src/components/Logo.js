@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     Image,
-    Text,
     View
 } from 'react-native';
 
@@ -21,12 +20,14 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent:'center',
-    marginBottom:'20%'
+        height:'50%',
+        width:'80%',
+    alignSelf:'center'
     },
     imageStyle: {
         resizeMode: 'contain',
-        width: '90%',
-        height: '55%',
+        width: '100%',
+        height: '100%',
     }
 
 });

@@ -5,22 +5,20 @@ export default class Bottom_logo extends Component {
     render() {
         return (
             <View style={Styles.logoContainer}>
-                <Image source={this.props.Logo} style={Styles.logo} /> 
+                <Image source={this.props.Logo} style={Styles.logo} />
             </View>
         )
     }
 }
 const Styles = StyleSheet.create({
     logoContainer: {
-        width: '33.33%',
-        height: '60%',
-       // backgroundColor: '#00207e'//for testing 
-    },
+        width: '80%',
+        height: '30%',
+        alignSelf: 'center'    },
     logo: {
         width: '100%',
         height: '100%',
         resizeMode: 'contain',
-        //backgroundColor: '#00207e'//for testing 
     }
 
 })

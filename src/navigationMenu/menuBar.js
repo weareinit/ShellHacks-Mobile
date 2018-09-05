@@ -15,7 +15,7 @@ import 'firebase/firestore';
 //data variables
 var profiledata;
 var scheduledata;
-var anouncementsdata;
+var homedata;
 var sponsorsdata;
 var { screenHeight, screenWidth } = Dimensions.get('window');// returns the height and width of the screen ( excluding android nav bar space)
 
@@ -47,7 +47,7 @@ database.settings({
 database.collection("data").doc("W8hFsfwCEqjsj70wpAZu").onSnapshot(function (doc) {//updates live
     profiledata = doc.data().profile;
     scheduledata = doc.data().schedule;
-    anouncementsdata = doc.data().anouncements;
+    homedata = doc.data().announcements;
     sponsorsdata = doc.data().sponsors;
 });
 
@@ -104,7 +104,7 @@ class HomeScreen extends Component {
                     <StaticHeader PageTitle={'Announcements'} />
                 </View>
                 <View style={styles.container} >
-                    <Announcements anouncementsData={anouncementsdata} />
+                    <Announcements homeData={homedata} />
                 </View>
             </View>
         );
