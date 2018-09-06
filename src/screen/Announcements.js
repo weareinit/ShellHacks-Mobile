@@ -5,6 +5,7 @@ import {
     CardItem,
     Body,
 } from 'native-base';
+import Timestamp from 'react-timestamp';
 import TitleBar from '../components/TitleBar.js'
 var { screenHeight, screenWidth } = Dimensions.get('window'); //assign the values of the screen height and width of a device 
 import Bottom_logo from '../components/Bottom_logo.js';
@@ -24,9 +25,6 @@ export default class Announcements extends React.Component {
     }
 
     render() {
-        //_____________________________________________________________________________________________________________________________________________
-        //NEED TO ADD LOGICS TO CHECK UPCOMING EVENTS AND ADD THE ONCE THAT ARE ABOUT TO HAPPEN (~10-15 MIN BEFORE THE SET TIME) and change shell icon to pink or teal
-        //_____________________________________________________________________________________________________________________________________________
 
         return (
 
@@ -42,7 +40,7 @@ export default class Announcements extends React.Component {
                                 <CardItem style={styles.cardItem}>
                                     {
                                         <Body>
-                                            <Text style={styles.smallText} >{item.date.toString()}</Text>
+                                            <Timestamp style={styles.textContent2} time={item.date.seconds} component={Text} />
                                             <Text style={styles.smallText} >{item.location}</Text>
                                             <Text style={styles.bodyText} >{item.body}</Text>
                                         </Body>

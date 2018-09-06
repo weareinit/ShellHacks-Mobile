@@ -20,8 +20,8 @@ export default class Sponsors extends Component {
         return (
             <ScrollView showsVerticalScrollIndicator={false} style={styles.container}
             >
-                {console.log(this.state.data) }
-                 {/*_______________________________________ ORGANIZER__________________________________________*/}
+                {console.log(this.state.data)}
+                {/*_______________________________________ ORGANIZER__________________________________________*/}
                 <FlatList
                     ListHeaderComponent={/*Renders the title of the List*/
                         <TitleBar ShellIcon={require('../Assets/blue-shell.png')} category='Organizers' />
@@ -81,7 +81,7 @@ export default class Sponsors extends Component {
                     )}
                     keyExtractor={(item) => item.name} //assign id to each item
                 />
-                <Text style={styles.bottomtext}>Made with 🐢, ❤, ☀, ⛱, 🌊, 🌀 by the ShellHacks Team</Text>
+                <Text adjustsFontSizeToFit numberOfLines={1} style={styles.bottomtext}>Made with 🐢, ❤, ☀, ⛱, 🌊, 🌀 by the ShellHacks Team</Text>
             </ScrollView>
         );
     }
@@ -94,7 +94,6 @@ const styles = StyleSheet.create({
         paddingLeft: '5%',
         paddingRight: '5%',
         marginBottom: '4%'
-
     },
     oneImg: {
         height: 120,// still havent figured a wait to turn these (the images height) into percentages
@@ -105,7 +104,6 @@ const styles = StyleSheet.create({
         width: '50%',
         height: 100,
         padding: '3%',
-
     },
     threeimg: {
         width: '33.3%',
@@ -118,8 +116,8 @@ const styles = StyleSheet.create({
         padding: '3%',
 
     }, bottomtext: {
-        paddingTop: 20,
-        fontSize: 7,
-        alignSelf: 'center'
+        paddingTop: '20%',
+        alignSelf: 'center',
+        paddingBottom: '5%',
     }
 });

@@ -30,6 +30,7 @@
     "react-native-elements": "^0.19.1",
     "react-native-popup-dialog": "^0.14.52",
     "react-native-qrcode": "^0.2.6",
-    "react-navigation": "^2.9.2"
+    "react-navigation": "^2.9.2",
+    "react-timestamp": "^4.4.0"
   }
 }
