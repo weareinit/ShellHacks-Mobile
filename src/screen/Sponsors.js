@@ -13,20 +13,17 @@ export default class Sponsors extends Component {
             data: this.props.sponsorsData
         }
     }
-
-
     render() {
 
         return (
             <ScrollView showsVerticalScrollIndicator={false} style={styles.container}
             >
-                {console.log(this.state.data)}
                 {/*_______________________________________ ORGANIZER__________________________________________*/}
                 <FlatList
                     ListHeaderComponent={/*Renders the title of the List*/
                         <TitleBar ShellIcon={require('../Assets/blue-shell.png')} category='Organizers' />
                     }
-                    data={this.state.data.organizers}
+                    data={this.props.sponsorsData.organizers}
                     renderItem={({ item }) => (
                         <Img viewStyle={styles.oneImg} supporter={{ uri: item.logo }} url={item.link} />
                     )}
@@ -93,7 +90,6 @@ const styles = StyleSheet.create({
         width: '100%',
         paddingLeft: '5%',
         paddingRight: '5%',
-        marginBottom: '4%'
     },
     oneImg: {
         height: 120,// still havent figured a wait to turn these (the images height) into percentages

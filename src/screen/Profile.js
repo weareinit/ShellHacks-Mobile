@@ -13,49 +13,28 @@ export default class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            welcomeMessage: 'Hello',
-            username: 'Hacker',
-            DiscordLink: this.props.profileData.discord,
-            LinkedinLink: this.props.profileData.linkedin,
-            FacebookLink: this.props.profileData.facebook,
-            InstagramLink: this.props.profileData.instagram,
-            SnapchatLink: this.props.profileData.snapchat,
-            SpecialDietsForm: this.props.profileData.specialDiets,
+            data: this.props.profileData,
             closeModal: false,
         }
     }
-    //updates the state if parent update
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.value !== this.props.profileData) {
-            this.setState(this.profileData);
-        }
-    }
-    //updates the state if parent update
-    componentDidUpdate(prevProps) {
-        if (this.props.profileData !==prevProps.profileData) {
-            this.setState(this.props.profileData);
-        }
-    }
-    // //update state variables
-    // componentDidMount(props) { this.setState(props) }
 
-    //Disord button action 
     PressedButton = () => {
-        Linking.openURL(this.state.DiscordLink)
+        Linking.openURL(this.state.data.discord)
     }
 
 
     render() {
+        {console.log(this.state.data)}
         return (
             <View style={Styles.container}>
                 <Image style={Styles.Shellimage} source={require('../Assets/profileShell.png')} />
-                <Text style={Styles.hello_text}> {this.state.welcomeMessage}, {this.state.username} </Text> // hello message
+                <Text style={Styles.hello_text}> {this.state.data.greetings}, {this.state.data.user} </Text> // hello message
                 <Buttons buttonText='Special Diets' ButtonPressed={() => { this.setState({ closeModal: true }) }} ButtonImage={require('../Assets/qrcode-scan.png')} />
                 <Modal animationType="slide"
                     transparent={false}
                     visible={this.state.closeModal == true}
                     style={Styles.modal}>
-                    <SpecialDiets formLink={this.state.SpecialDietsForm} />
+                    <SpecialDiets formLink={this.state.data.specialDietsForm} />
                     <TouchableOpacity onPress={() => { this.setState({ closeModal: false }) }}
                         style={{ position: 'absolute', alignSelf: 'center', height: '10%', width: '25%', alignContent: 'center' }}>
                         <Image source={require('../Assets/close-icon.png')} style={{ height: '100%', width: '100%', resizeMode: 'contain' }} />
@@ -63,10 +42,10 @@ export default class Profile extends Component {
                 </Modal >
                 <Buttons buttonText='Discord' ButtonPressed={this.PressedButton} ButtonImage={require('../Assets/Discord-logo.png')} />
                 <View style={Styles.socialMediaContainer}>
-                    <SocialMedia url={this.state.LinkedinLink} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('../Assets/logout-icon.png')} />
-                    <SocialMedia url={this.state.FacebookLink} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('../Assets/facebook-logo.png')} />
-                    <SocialMedia url={this.state.InstagramLink} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('../Assets/instagram-logo.png')} />
-                    <SocialMedia url={this.state.SnapchatLink} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('../Assets/snapchat-logo.png')} />
+                    <SocialMedia url={this.state.data.linkedin} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('../Assets/logout-icon.png')} />
+                    <SocialMedia url={this.state.data.facebook} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('../Assets/facebook-logo.png')} />
+                    <SocialMedia url={this.state.data.instagram} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('../Assets/instagram-logo.png')} />
+                    <SocialMedia url={this.state.data.snapchat} socialMediaStyle={Styles.socialMedia} SocialMediaImage={require('../Assets/snapchat-logo.png')} />
                 </View>
             </View>//Container 
         );

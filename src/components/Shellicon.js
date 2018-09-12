@@ -10,7 +10,7 @@ export default class Shellicon extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Image source={require('../Assets/pinkRoundShell.png')} />
+                <Image source={require('../Assets/pinkRoundShell.png')} style={[styles.icon,{opacity:80}]} />
             </View>
         );
     };
@@ -24,8 +24,6 @@ const styles = StyleSheet.create({
         //any height and width here gets overwritten.... not sure why
     },
     icon: {
-        height: '100%',
-        width: '100%',
         resizeMode: 'contain'
     }
 });

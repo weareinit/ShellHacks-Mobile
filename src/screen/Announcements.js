@@ -17,12 +17,14 @@ export default class Announcements extends React.Component {
             data: this.props.homeData
         }
     }
+    componentDidUpdate() {
 
-    dateDiff = (date1) => { date1 - date2 }
-    chooseShell = (date) => {
-        if (this.dateDiff(date) < 60) { "../Assets/pink-shell.png" }
-        else { "../Assets/blue-shell.png" }
     }
+    // dateDiff = (date1) => { date1 - date2 }
+    // chooseShell = (date) => {
+    //     if (this.dateDiff(date) < 60) { "../Assets/pink-shell.png" }
+    //     else { "../Assets/blue-shell.png" }
+    // }
 
     render() {
 
@@ -40,7 +42,7 @@ export default class Announcements extends React.Component {
                                 <CardItem style={styles.cardItem}>
                                     {
                                         <Body>
-                                            <Timestamp style={styles.textContent2} time={item.date.seconds} component={Text} />
+                                            <Timestamp style={styles.textContent2} autoUpdate={60} time={item.date.seconds} component={Text} />
                                             <Text style={styles.smallText} >{item.location}</Text>
                                             <Text style={styles.bodyText} >{item.body}</Text>
                                         </Body>
@@ -60,16 +62,12 @@ export default class Announcements extends React.Component {
                     alignItems: 'center',
                     height: 300,//need to improve to pixel ratio aka dynamic
                     width: '100%',
-                    marginTop: 70,//need to improve to pixel ratio aka dynamic
+                    marginTop: 60,//need to improve to pixel ratio aka dynamic
+                    alignSelf: 'center'
+
                 }}>
                     <View style={styles.ShellHacks_letterContainer}>
                         <Image style={styles.ShellHacks_letter} source={require('../Assets/ShellHacks-letter.png')} />
-                    </View>
-                    <View style={{ marginTop: '2%', flexDirection: 'row', height: '17%', width: '100%' }}>
-                        <Bottom_logo Logo={require('../Assets/UPEwhite.png')} />
-                        <Bottom_logo />{/*white space*/}
-                        <Bottom_logo />
-                        <Bottom_logo Logo={require('../Assets/SpotifyWhite.png')} />
                     </View>
                 </View>
             </ScrollView>
@@ -84,9 +82,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         paddingLeft: "5%",
         paddingRight: "5%",
-        marginTop: '5%',
         width: '100%',
-        marginBottom: '4%'
 
     },
 
@@ -125,12 +121,20 @@ const styles = StyleSheet.create({
         width: '25%',
     },
     ShellHacks_letter: {
-        height: '90%',
+        height: '100%',
         width: '100%',
         resizeMode: 'contain',
-    }, ShellHacks_letterContainer: {
-        height: '80%',
+    }, 
+    ShellHacks_letterContainer: {
+        height: '100%',
         width: '100%',
         marginTop: '2%',
+        alignSelf: 'center'
+
+    }, logo: {
+        width: '100%',
+        height: '100%',
+        resizeMode: 'contain',
+        alignSelf: 'center'
     }
 });

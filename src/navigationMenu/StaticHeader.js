@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
     },
     title: {
         //backgroundColor:'grey',//for testing 
-        lineHeight: 40,
         fontSize: 40,
         color: 'white',
         fontWeight: 'bold',

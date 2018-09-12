@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, ScrollView } from 'react-native';
 import {
     Card,
     CardItem,
@@ -16,10 +16,16 @@ export default class Schedule extends React.Component {
         }
     }
 
+    componentDidMount(prevProps) {
+        if (prevProps != this.props) {
+            this.setState(prevProps)
+        }
+    }
     render() {
         return (
 
-            <View style={styles.container}>
+            <ScrollView style={styles.container}
+                showsVerticalScrollIndicator={false}>
                 <FlatList style={styles.cardItem}
                     showsVerticalScrollIndicator={false}
                     data={this.state.data}
@@ -34,7 +40,7 @@ export default class Schedule extends React.Component {
                                 <CardItem style={styles.cardItem}>
                                     {
                                         <Body>
-                                            <Timestamp style={styles.textContent2} time={item.date.seconds} component={Text} />
+                                            <Text style={styles.textContent2}>{item.date}</Text>>
                                             <Text style={styles.textContent2} >{item.location}</Text>
                                             <Text style={styles.textContent3} >{item.body}</Text>
                                         </Body>
@@ -46,8 +52,10 @@ export default class Schedule extends React.Component {
                     )}
                     keyExtractor={item => item.id.toString()} //assign id to each item
                 >
+
                 </FlatList>
-            </View >
+                <Text adjustsFontSizeToFit numberOfLines={1} style={styles.bottomtext}>Welcome to the end of the schedule🐢, ❤, ☀, ⛱, 🌊, 🌀</Text>
+            </ScrollView >
 
         );
     }
@@ -58,7 +66,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         marginLeft: "5%",
         marginRight: "5%",
-        marginTop: '5%',
         width: '90%'
     },
     card: {
@@ -71,8 +78,6 @@ const styles = StyleSheet.create({
     },
     cardItem: {
         backgroundColor: 'transparent',
-        marginBottom: '3%'
-
     },
     textContent2: {
         fontSize: 12,
@@ -108,5 +113,9 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         resizeMode: 'contain'
+    }, bottomtext: {
+        paddingTop: '20%',
+        alignSelf: 'center',
+        paddingBottom: '10%',
     }
 });

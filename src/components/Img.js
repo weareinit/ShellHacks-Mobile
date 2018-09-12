@@ -11,7 +11,7 @@ const Img = (props) => {
     return (
         <View style={props.viewStyle}>
             <TouchableOpacity onPress={PressedButton} >
-                <Image style={Styles.imagestyle} source={props.supporter} />
+                <Image style={Styles.imagestyle} source={props.supporter} loadingIndicatorSource={require('../Assets/loadAnimation.gif')}/>
             </TouchableOpacity>
         </View>
 

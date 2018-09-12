@@ -39,28 +39,69 @@ firebase.auth().signInAnonymously().catch(function (error) {
     //console.log(errorMessage)
 });
 
+
 //data fetching ...real time
 var database = firebase.firestore();
 database.settings({
     timestampsInSnapshots: true
 });
-database.collection("data").doc("W8hFsfwCEqjsj70wpAZu").onSnapshot(function (doc) {//updates live
+// database.enablePersistence()
+//     .catch(function (err) {
+//         if (err.code == 'failed-precondition') {
+//         } else if (err.code == 'unimplemented') {
+//         }
+//     });
+database.collection("data").doc("W8hFsfwCEqjsj70wpAZu").onSnapshot({ includeMetadataChanges: true }, function (doc) {//updates live
     profiledata = doc.data().profile;
     scheduledata = doc.data().schedule;
     homedata = doc.data().announcements;
     sponsorsdata = doc.data().sponsors;
+
+
 });
 
+passNewData = () => { }
+compareArray = (array, array2) => {
+    if (array.length !== array2.length) { return false }
+    var index = 0;
+    while (index <= array.length) {
+        if (array[index].id !== array2[index].id) {//check id
+            return false
+        } if (array[index].title !== array2[index].title) {//check title
+            return false
+        } if (array[index].date !== array2[index].date) {//check date 
+            return false
+        } if (array[index].location !== array2[index].location) {//check location 
+            return false
+        } if (array[index].body !== array2[index].body) {//check body
+            return false
+        }
+        index++
+    }
+    return true;
+}
 
 class ProfileScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: profiledata
+        }
+    }
+    componentDidMount() {
+        database.collection("data").doc("W8hFsfwCEqjsj70wpAZu").onSnapshot({ includeMetadataChanges: true }, (doc) => {//updates live
+            this.setState({ data: doc.data().profile })
+        })
+    }
     render() {
+
         return (
             <View style={styles.screenDimensions} >
                 <View style={styles.Navbar}>
                     <StaticHeader PageTitle={'Profile'} />
                 </View>
                 <View style={styles.container} >
-                    <Profile profileData={profiledata} />
+                    <Profile profileData={this.state.data} />
                 </View>
             </View>
         );
@@ -68,6 +109,19 @@ class ProfileScreen extends Component {
 }
 
 class SponsorScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: sponsorsdata
+        }
+    }
+    componentDidMount() {
+        database.collection("data").doc("W8hFsfwCEqjsj70wpAZu").onSnapshot({ includeMetadataChanges: true }, (doc) => {//updates live
+            this.setState({ data: doc.data().sponsors })
+        })
+    }
+
+
     render() {
         return (
             <View style={styles.screenDimensions} >
@@ -75,7 +129,7 @@ class SponsorScreen extends Component {
                     <StaticHeader PageTitle={'Sponsors'} />
                 </View>
                 <View style={styles.container} >
-                    <Sponsors sponsorsData={sponsorsdata} />
+                    <Sponsors sponsorsData={this.state.data} />
                 </View>
             </View>
         );
@@ -97,6 +151,18 @@ class MapScreen extends Component {
     }
 }
 class HomeScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: homedata
+        }
+    }
+    componentDidMount() {
+        database.collection("data").doc("W8hFsfwCEqjsj70wpAZu").onSnapshot({ includeMetadataChanges: true }, (doc) => {//updates live
+            this.setState({ data: doc.data().announcements })
+        })
+    }
+
     render() {
         return (
             <View style={styles.screenDimensions} >
@@ -104,13 +170,24 @@ class HomeScreen extends Component {
                     <StaticHeader PageTitle={'Announcements'} />
                 </View>
                 <View style={styles.container} >
-                    <Announcements homeData={homedata} />
+                    <Announcements homeData={this.state.data} />
                 </View>
             </View>
         );
     }
 }
 class ScheduleScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: scheduledata
+        }
+    }
+    componentDidMount() {
+        database.collection("data").doc("W8hFsfwCEqjsj70wpAZu").onSnapshot({ includeMetadataChanges: true }, (doc) => {//updates live
+            this.setState({ data: doc.data().schedule })
+        })
+    }
     render() {
         return (
             <View style={styles.screenDimensions} >
@@ -118,7 +195,7 @@ class ScheduleScreen extends Component {
                     <StaticHeader PageTitle={'Schedule'} />
                 </View>
                 <View style={styles.container} >
-                    <Schedule scheduleData={scheduledata} />
+                    <Schedule scheduleData={this.state.data} />
                 </View>
             </View>
         );
@@ -145,7 +222,7 @@ export default Menu = createBottomTabNavigator({
         screen: HomeScreen,
         navigationOptions: {
             tabBarLabel: ' ',
-            tabBarIcon: <Shellicon />
+            tabBarIcon: ({ tintColor }) => <Shellicon Color={tintColor} />,
         },
     },
     Profile: {
